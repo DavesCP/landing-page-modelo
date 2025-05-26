@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Whitepace - Project Management Software</title>
+		<title>Whitepace - Software de Gerenciamento de Projetos</title>
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
@@ -35,7 +35,7 @@
 
 			.container {
 				width: 100%;
-				max-width: 1400px;
+				max-width: 1500px;
 				margin: 0 auto;
 				padding: 0 20px;
 			}
@@ -664,63 +664,6 @@
 					padding: 0 4px;
 				}
 			}
-			.sponsor-logo-circle {
-				width: 80px;
-				height: 80px;
-				border-radius: 50%;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				box-shadow: 0 4px 20px rgba(4, 56, 115, 0.08);
-				transition: all 0.3s ease;
-			}
-
-			.sponsor-logo-circle:hover {
-				transform: translateY(-5px);
-				box-shadow: 0 8px 25px rgba(4, 56, 115, 0.12);
-			}
-
-			.sponsor-carousel.infinite {
-				display: flex;
-				gap: 40px;
-				align-items: center;
-				width: max-content;
-			}
-
-			@media (max-width: 900px) {
-				.sponsor-carousel-outer {
-					padding: 0 20px;
-					max-width: 98vw;
-				}
-				.sponsor-logo-circle {
-					width: 64px;
-					height: 64px;
-				}
-				.sponsor-carousel.infinite {
-					gap: 24px;
-				}
-				.sponsor-logo-circle img {
-					width: 32px;
-					height: 32px;
-				}
-			}
-
-			@media (max-width: 700px) {
-				.sponsor-carousel-outer {
-					padding: 0 10px;
-				}
-				.sponsor-logo-circle {
-					width: 56px;
-					height: 56px;
-				}
-				.sponsor-carousel.infinite {
-					gap: 16px;
-				}
-				.sponsor-logo-circle img {
-					width: 28px;
-					height: 28px;
-				}
-			}
 		</style>
 	</head>
 	<body>
@@ -730,17 +673,18 @@
 				<div class="logo">white<span>pace</span></div>
 				<nav class="main-nav">
 					<ul>
-						<li><a href="#hero">Home</a></li>
-						<li><a href="#features">Features</a></li>
-						<li><a href="#about">About</a></li>
-						<li><a href="#sponsors">Sponsors</a></li>
-						<li><a href="#testimonials">Testimonials</a></li>
-						<li><a href="#pricing">Pricing</a></li>
+						<li><a href="#hero">Início</a></li>
+						<li><a href="#features">Recursos</a></li>
+						<li><a href="#about">Sobre</a></li>
+						<li><a href="#sponsors">Patrocinadores</a></li>
+						<li><a href="#contact">Contato</a></li>
+						<li><a href="#testimonials">Depoimentos</a></li>
+						<li><a href="#pricing">Preços</a></li>
 					</ul>
 				</nav>
 				<div class="header-actions">
-					<a href="#" class="btn btn-outline">Login</a>
-					<a href="#" class="btn btn-primary">Try Whitepace free</a>
+					<a href="#" class="btn btn-outline">Entrar</a>
+					<a href="#" class="btn btn-primary">Experimente Whitepace grátis</a>
 				</div>
 				<!-- Hamburger Icon -->
 				<button class="hamburger" id="hamburger" aria-label="Open menu">
@@ -768,12 +712,14 @@
 					&times;
 				</button>
 				<ul>
-					<li><a href="#hero" class="sidebar-link">Home</a></li>
-					<li><a href="#features" class="sidebar-link">Features</a></li>
-					<li><a href="#about" class="sidebar-link">About</a></li>
-					<li><a href="#sponsors" class="sidebar-link">Sponsors</a></li>
-					<li><a href="#testimonials" class="sidebar-link">Testimonials</a></li>
-					<li><a href="#pricing" class="sidebar-link">Pricing</a></li>
+					<li><a href="#hero" class="sidebar-link">Início</a></li>
+					<li><a href="#features" class="sidebar-link">Recursos</a></li>
+					<li><a href="#about" class="sidebar-link">Sobre</a></li>
+					<li><a href="#sponsors" class="sidebar-link">Patrocinadores</a></li>
+					<li><a href="#contact" class="sidebar-link">Contato</a></li>
+					<li><a href="#testimonials" class="sidebar-link">Depoimentos</a></li>
+					<li><a href="#pricing" class="sidebar-link">Preços</a></li>
+					<li><a href="#cta" class="sidebar-link">Experimente</a></li>
 				</ul>
 			</aside>
 		</header>
@@ -782,12 +728,12 @@
 		<section class="hero" id="hero">
 			<div class="container hero-container">
 				<div class="hero-content">
-					<h1>Get More Done with <span>whitepace</span></h1>
+					<h1>Faça mais com <span>whitepace</span></h1>
 					<p>
-						Project management software that enables your teams to collaborate,
-						plan, analyze and manage everyday tasks
+						Software de gerenciamento de projetos que permite que suas equipes
+						colaborem, planejem, analisem e gerenciem tarefas diárias
 					</p>
-					<a href="#" class="btn btn-primary">Try Whitepace free</a>
+					<a href="#" class="btn btn-primary">Experimente Whitepace grátis</a>
 				</div>
 				<div class="hero-image">
 					<img
@@ -802,11 +748,11 @@
 		<section class="features" id="features">
 			<div class="container">
 				<div class="features-header">
-					<h2>Project Management</h2>
+					<h2>Gerenciamento de Projetos</h2>
 					<p>
-						Images, videos, PDFs and audio files are supported. Create math
-						expressions and diagrams directly from the app. Take photos with the
-						mobile app and save them to a note.
+						Suporte para imagens, vídeos, PDFs e arquivos de áudio. Crie
+						expressões matemáticas e diagramas diretamente do aplicativo. Tire
+						fotos com o aplicativo móvel e salve-as em uma nota.
 					</p>
 				</div>
 
@@ -830,11 +776,11 @@
 								<path d="M6 21v-2a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v2" />
 							</svg>
 						</div>
-						<h3>Work together</h3>
+						<h3>Trabalhe em equipe</h3>
 						<p>
-							With whitepace, share your notes with your colleagues and
-							collaborate on them. You can also publish a note to the internet
-							and share the URL with others.
+							Com o whitepace, compartilhe suas notas com seus colegas e
+							colabore com eles. Você também pode publicar uma nota na internet
+							e compartilhar o URL com outras pessoas.
 						</p>
 					</div>
 
@@ -857,10 +803,10 @@
 								<rect x="3" y="14" width="7" height="7" rx="2" />
 							</svg>
 						</div>
-						<h3>Use as Extension</h3>
+						<h3>Use como Extensão</h3>
 						<p>
-							Use the web clipper extension, available on Chrome and Firefox, to
-							save web pages or take screenshots as notes.
+							Use a extensão web clipper, disponível no Chrome e Firefox, para
+							salvar páginas da web ou capturar telas como notas.
 						</p>
 					</div>
 
@@ -883,11 +829,11 @@
 								/>
 							</svg>
 						</div>
-						<h3>Customise it to your needs</h3>
+						<h3>Personalize conforme suas necessidades</h3>
 						<p>
-							Customise the app with plugins, custom themes and multiple text
-							editors (Rich Text or Markdown). Or create your own scripts and
-							plugins using the Extension API.
+							Personalize o aplicativo com plugins, temas personalizados e
+							múltiplos editores de texto (Rich Text ou Markdown). Ou crie seus
+							próprios scripts e plugins usando a API de Extensão.
 						</p>
 					</div>
 				</div>
@@ -906,7 +852,7 @@
 					style="text-align: center; margin-bottom: 60px"
 				>
 					<h2 style="color: white; font-size: 36px; margin-bottom: 16px">
-						Your work, everywhere you are
+						Seu trabalho, onde você estiver
 					</h2>
 					<p
 						style="
@@ -916,10 +862,10 @@
 							font-size: 16px;
 						"
 					>
-						Access your notes from your computer, phone or tablet by
-						synchronising with various services, including whitepace, Dropbox
-						and OneDrive. The app is available on Windows, macOS, Linux, Android
-						and iOS. A terminal app is also available!
+						Acesse suas notas do seu computador, telefone ou tablet
+						sincronizando com vários serviços, incluindo whitepace, Dropbox e
+						OneDrive. O aplicativo está disponível para Windows, macOS, Linux,
+						Android e iOS. Um aplicativo de terminal também está disponível!
 					</p>
 				</div>
 
@@ -935,7 +881,7 @@
 				>
 					<div class="about-content">
 						<h3 style="font-size: 28px; margin-bottom: 20px; color: white">
-							Work together with your team
+							Trabalhe junto com sua equipe
 						</h3>
 						<p
 							style="
@@ -945,9 +891,10 @@
 								margin-bottom: 24px;
 							"
 						>
-							Stay connected with your team and make quick decisions wherever
-							you are. With Whitepace, all your team's work is organized in one
-							place, making it easy to collaborate and stay productive.
+							Mantenha-se conectado com sua equipe e tome decisões rápidas onde
+							quer que esteja. Com o Whitepace, todo o trabalho da sua equipe
+							está organizado em um só lugar, facilitando a colaboração e
+							mantendo a produtividade.
 						</p>
 						<ul style="list-style: none; margin-bottom: 32px">
 							<li
@@ -970,7 +917,7 @@
 									<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
 									<polyline points="22 4 12 14.01 9 11.01"></polyline>
 								</svg>
-								Real-time collaboration
+								Colaboração em tempo real
 							</li>
 							<li
 								style="
@@ -992,7 +939,7 @@
 									<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
 									<polyline points="22 4 12 14.01 9 11.01"></polyline>
 								</svg>
-								Cloud synchronization
+								Sincronização na nuvem
 							</li>
 							<li
 								style="
@@ -1014,14 +961,14 @@
 									<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
 									<polyline points="22 4 12 14.01 9 11.01"></polyline>
 								</svg>
-								Cross-platform support
+								Suporte multiplataforma
 							</li>
 						</ul>
 						<a
 							href="#pricing"
 							class="btn btn-primary"
 							style="display: inline-block; background-color: #4f9cf9"
-							>Try Whitepace free</a
+							>Experimente Whitepace grátis</a
 						>
 					</div>
 					<div class="about-image" style="position: relative">
@@ -1061,7 +1008,7 @@
 					style="text-align: center; margin-top: 100px; margin-bottom: 60px"
 				>
 					<h2 style="color: white; font-size: 36px; margin-bottom: 16px">
-						100% your data
+						100% seus dados
 					</h2>
 					<p
 						style="
@@ -1071,10 +1018,10 @@
 							font-size: 16px;
 						"
 					>
-						The app is open source and your notes are saved to an open format,
-						so you'll always have access to them. Uses End-To-End Encryption
-						(E2EE) to secure your notes and ensure no-one but yourself can
-						access them.
+						O aplicativo é de código aberto e suas notas são salvas em um
+						formato aberto, então você sempre terá acesso a elas. Utiliza
+						Criptografia de Ponta a Ponta (E2EE) para proteger suas notas e
+						garantir que ninguém além de você possa acessá-las.
 					</p>
 				</div>
 
@@ -1215,134 +1162,83 @@
 		<section
 			id="sponsors"
 			class="features"
-			style="background-color: #ffffff; padding: 80px 0"
+			style="background-color: #f5f8ff; padding: 40px 0"
 		>
 			<div class="container">
 				<div class="features-header">
-					<h2 style="color: #043873">Our sponsors</h2>
-					<div
-						class="sponsor-carousel-outer"
-						style="max-width: 800px; margin: 40px auto 0"
-					>
+					<h2>Nossos patrocinadores</h2>
+					<div class="sponsor-carousel-outer" style="max-width: 600px">
 						<div class="sponsor-carousel infinite" id="sponsorCarousel">
 							<!-- Logo 1: Android -->
-							<div
-								class="sponsor-logo-circle"
-								style="
-									background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
-								"
-							>
+							<div class="sponsor-logo-circle">
 								<img
 									src="assets/icons/android-logo.svg"
 									alt="Android Logo"
 									width="40"
 									height="40"
-									style="filter: brightness(0.9)"
 								/>
 							</div>
 							<!-- Logo 2: Skype -->
-							<div
-								class="sponsor-logo-circle"
-								style="
-									background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
-								"
-							>
+							<div class="sponsor-logo-circle">
 								<img
 									src="assets/icons/skype-logo.svg"
 									alt="Skype Logo"
 									width="40"
 									height="40"
-									style="filter: brightness(0.9)"
 								/>
 							</div>
 							<!-- Logo 3: Instagram -->
-							<div
-								class="sponsor-logo-circle"
-								style="
-									background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
-								"
-							>
+							<div class="sponsor-logo-circle">
 								<img
 									src="assets/icons/instagram-logo.svg"
 									alt="Instagram Logo"
 									width="40"
 									height="40"
-									style="filter: brightness(0.9)"
 								/>
 							</div>
 							<!-- Logo 4: YouTube -->
-							<div
-								class="sponsor-logo-circle"
-								style="
-									background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
-								"
-							>
+							<div class="sponsor-logo-circle">
 								<img
 									src="assets/icons/youtube-logo.svg"
 									alt="YouTube Logo"
 									width="40"
 									height="40"
-									style="filter: brightness(0.9)"
 								/>
 							</div>
 							<!-- Logo 5: Twitter -->
-							<div
-								class="sponsor-logo-circle"
-								style="
-									background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
-								"
-							>
+							<div class="sponsor-logo-circle">
 								<img
 									src="assets/icons/twitter-logo.svg"
 									alt="Twitter Logo"
 									width="40"
 									height="40"
-									style="filter: brightness(0.9)"
 								/>
 							</div>
 							<!-- Logo 6: LinkedIn -->
-							<div
-								class="sponsor-logo-circle"
-								style="
-									background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
-								"
-							>
+							<div class="sponsor-logo-circle">
 								<img
 									src="assets/icons/linkedin-logo.svg"
 									alt="LinkedIn Logo"
 									width="40"
 									height="40"
-									style="filter: brightness(0.9)"
 								/>
 							</div>
 							<!-- Logo 7: Google -->
-							<div
-								class="sponsor-logo-circle"
-								style="
-									background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
-								"
-							>
+							<div class="sponsor-logo-circle">
 								<img
 									src="assets/icons/google-logo.svg"
 									alt="Google Logo"
 									width="40"
 									height="40"
-									style="filter: brightness(0.9)"
 								/>
 							</div>
 							<!-- Logo 8: Facebook -->
-							<div
-								class="sponsor-logo-circle"
-								style="
-									background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
-								"
-							>
+							<div class="sponsor-logo-circle">
 								<img
 									src="assets/icons/facebook-logo.svg"
 									alt="Facebook Logo"
 									width="40"
 									height="40"
-									style="filter: brightness(0.9)"
 								/>
 							</div>
 						</div>
@@ -1363,7 +1259,7 @@
 					style="text-align: center; margin-bottom: 60px"
 				>
 					<h2 style="font-size: 36px; color: #043873; margin-bottom: 16px">
-						Work with Your Favorite Apps Using whitepace
+						Trabalhe com seus aplicativos favoritos usando whitepace
 					</h2>
 					<p
 						style="
@@ -1373,9 +1269,9 @@
 							font-size: 16px;
 						"
 					>
-						Whitepace teams up with your favorite software. Integrate with over
-						1000+ apps with Zapier to have all the tools you need for your
-						project success.
+						O Whitepace se integra com seus softwares favoritos. Integre com
+						mais de 1000+ aplicativos usando o Zapier para ter todas as
+						ferramentas que você precisa para o sucesso do seu projeto.
 					</p>
 				</div>
 
@@ -1409,14 +1305,20 @@
 								margin-bottom: 24px;
 							"
 						>
-							<img
-								src="https://cdn.worldvectorlogo.com/logos/slack-new-logo.svg"
-								alt="Slack"
+							<object
+								data="assets/icons/google-calendar.svg"
+								type="image/svg+xml"
 								style="width: 40px; height: 40px"
-							/>
+							>
+								<img
+									src="assets/icons/google-calendar.svg"
+									alt="Google Calendar"
+									style="width: 40px; height: 40px"
+								/>
+							</object>
 						</div>
 						<h3 style="font-size: 20px; color: #043873; margin-bottom: 16px">
-							Slack Integration
+							Integração com Slack
 						</h3>
 						<p
 							style="
@@ -1426,8 +1328,8 @@
 								margin-bottom: 20px;
 							"
 						>
-							Connect your Slack workspace to Whitepace and get instant
-							notifications about your projects and tasks.
+							Conecte seu workspace do Slack ao Whitepace e receba notificações
+							instantâneas sobre seus projetos e tarefas.
 						</p>
 						<a
 							href="#"
@@ -1439,7 +1341,7 @@
 								gap: 8px;
 							"
 						>
-							Learn more
+							Saiba mais
 							<svg
 								width="20"
 								height="20"
@@ -1498,8 +1400,8 @@
 								margin-bottom: 20px;
 							"
 						>
-							Sync your Google Calendar with Whitepace to manage your schedule
-							and deadlines in one place.
+							Sincronize seu Google Calendar com o Whitepace para gerenciar sua
+							agenda e prazos em um só lugar.
 						</p>
 						<a
 							href="#"
@@ -1511,7 +1413,7 @@
 								gap: 8px;
 							"
 						>
-							Learn more
+							Saiba mais
 							<svg
 								width="20"
 								height="20"
@@ -1554,7 +1456,7 @@
 							/>
 						</div>
 						<h3 style="font-size: 20px; color: #043873; margin-bottom: 16px">
-							Dropbox Sync
+							Sincronização com Dropbox
 						</h3>
 						<p
 							style="
@@ -1564,8 +1466,8 @@
 								margin-bottom: 20px;
 							"
 						>
-							Automatically sync your Dropbox files with Whitepace for seamless
-							file management and collaboration.
+							Sincronize automaticamente seus arquivos do Dropbox com o
+							Whitepace para um gerenciamento e colaboração perfeitos.
 						</p>
 						<a
 							href="#"
@@ -1577,7 +1479,7 @@
 								gap: 8px;
 							"
 						>
-							Learn more
+							Saiba mais
 							<svg
 								width="20"
 								height="20"
@@ -1608,7 +1510,7 @@
 							style="width: 120px; height: 40px; margin-bottom: 24px"
 						/>
 						<h3 style="font-size: 24px; color: #043873; margin-bottom: 16px">
-							Connect with 1000+ Apps
+							Conecte com mais de 1000+ Aplicativos
 						</h3>
 						<p
 							style="
@@ -1619,8 +1521,9 @@
 								margin: 0 auto 24px;
 							"
 						>
-							Use Zapier to connect Whitepace with your favorite apps and
-							automate your workflow. No coding required.
+							Use o Zapier para conectar o Whitepace com seus aplicativos
+							favoritos e automatizar seu fluxo de trabalho. Sem necessidade de
+							programação.
 						</p>
 						<a
 							href="#"
@@ -1691,7 +1594,7 @@
 					style="text-align: center; margin-bottom: 60px"
 				>
 					<h2 style="font-size: 36px; color: white; margin-bottom: 16px">
-						What Our Clients Says
+						O que nossos clientes dizem
 					</h2>
 					<p
 						style="
@@ -1701,8 +1604,9 @@
 							font-size: 16px;
 						"
 					>
-						Trusted by thousands of users and teams worldwide. See what our
-						clients have to say about their experience with Whitepace.
+						Confiado por milhares de usuários e equipes em todo o mundo. Veja o
+						que nossos clientes têm a dizer sobre sua experiência com o
+						Whitepace.
 					</p>
 				</div>
 
@@ -1756,9 +1660,10 @@
 									margin-bottom: 24px;
 								"
 							>
-								"Whitepace is designed as a collaboration tool for businesses
-								that is a full project management solution. It's been a
-								game-changer for our team's productivity."
+								"O Whitepace foi projetado como uma ferramenta de colaboração
+								para empresas que é uma solução completa de gerenciamento de
+								projetos. Foi um divisor de águas para a produtividade da nossa
+								equipe."
 							</div>
 							<div style="display: flex; align-items: center; gap: 12px">
 								<div>
@@ -1768,7 +1673,7 @@
 										Oberon Shaw
 									</div>
 									<div style="font-size: 14px; color: rgba(255, 255, 255, 0.7)">
-										Head of Talent Acquisition, North America
+										Diretor de Aquisição de Talentos, América do Norte
 									</div>
 								</div>
 							</div>
@@ -1816,9 +1721,9 @@
 									margin-bottom: 24px;
 								"
 							>
-								"The seamless integration with other tools and the ability to
-								collaborate in real-time has transformed how our team works.
-								It's intuitive and powerful."
+								"A integração perfeita com outras ferramentas e a capacidade de
+								colaborar em tempo real transformou a forma como nossa equipe
+								trabalha. É intuitivo e poderoso."
 							</div>
 							<div style="display: flex; align-items: center; gap: 12px">
 								<div>
@@ -1828,7 +1733,7 @@
 										Sarah Chen
 									</div>
 									<div style="font-size: 14px; color: rgba(255, 255, 255, 0.7)">
-										Product Manager, Tech Solutions
+										Gerente de Produto, Soluções Tech
 									</div>
 								</div>
 							</div>
@@ -1876,9 +1781,9 @@
 									margin-bottom: 24px;
 								"
 							>
-								"The security features and data control options give us peace of
-								mind. It's rare to find a tool that balances ease of use with
-								robust security."
+								"Os recursos de segurança e as opções de controle de dados nos
+								dão tranquilidade. É raro encontrar uma ferramenta que equilibre
+								facilidade de uso com segurança robusta."
 							</div>
 							<div style="display: flex; align-items: center; gap: 12px">
 								<div>
@@ -1888,7 +1793,7 @@
 										Michael Rodriguez
 									</div>
 									<div style="font-size: 14px; color: rgba(255, 255, 255, 0.7)">
-										CTO, Digital Innovations
+										CTO, Inovações Digitais
 									</div>
 								</div>
 							</div>
@@ -1934,7 +1839,7 @@
 						href="#pricing"
 						class="btn btn-primary"
 						style="display: inline-block; background-color: #4f9cf9"
-						>Join our satisfied customers</a
+						>Junte-se aos nossos clientes satisfeitos</a
 					>
 				</div>
 			</div>
@@ -1944,56 +1849,62 @@
 		<section class="pricing" id="pricing">
 			<div class="container">
 				<div class="pricing-header">
-					<h2>Choose Your Plan</h2>
+					<h2>Escolha seu Plano</h2>
 					<p>
-						Whether you want to get organized, keep your personal life on track,
-						or boost workplace productivity, Evernote has the right plan for
-						you.
+						Quer você queira se organizar, manter sua vida pessoal em ordem, ou
+						aumentar a produtividade no trabalho, o Whitepace tem o plano ideal
+						para você.
 					</p>
 				</div>
 
 				<div class="pricing-grid">
 					<div class="pricing-card">
-						<h3>Personal</h3>
-						<div class="price">$11.99<span>/month</span></div>
-						<p>Keep home and family on track</p>
+						<h3>Pessoal</h3>
+						<div class="price">R$59,90<span>/mês</span></div>
+						<p>Mantenha casa e família organizados</p>
 						<ul class="pricing-features">
-							<li>Sync unlimited devices</li>
-							<li>10GB monthly uploads</li>
-							<li>200MB max. note size</li>
-							<li>Customize Home dashboard and access extra widgets</li>
-							<li>Connect primary Google Calendar account</li>
-							<li>Add due dates, reminders, and notifications to your tasks</li>
+							<li>Sincronize dispositivos ilimitados</li>
+							<li>10GB de uploads mensais</li>
+							<li>200MB tamanho máximo de nota</li>
+							<li>Personalize o painel inicial e acesse widgets extras</li>
+							<li>Conecte conta principal do Google Calendar</li>
+							<li>
+								Adicione datas de vencimento, lembretes e notificações às suas
+								tarefas
+							</li>
 						</ul>
-						<a href="#" class="btn btn-primary">Get Started</a>
+						<a href="#" class="btn btn-primary">Começar Agora</a>
 					</div>
 
 					<div class="pricing-card popular">
-						<div class="popular-tag">Most Popular</div>
-						<h3>Organization</h3>
-						<div class="price">$49.99<span>/month</span></div>
-						<p>Capture ideas and find them quickly</p>
+						<div class="popular-tag">Mais Popular</div>
+						<h3>Organização</h3>
+						<div class="price">R$249,90<span>/mês</span></div>
+						<p>Capture ideias e encontre-as rapidamente</p>
 						<ul class="pricing-features">
-							<li>Sync unlimited devices</li>
-							<li>10GB monthly uploads</li>
-							<li>200MB max. note size</li>
-							<li>Customize Home dashboard and access extra widgets</li>
-							<li>Connect primary Google Calendar account</li>
-							<li>Add due dates, reminders, and notifications to your tasks</li>
+							<li>Sincronize dispositivos ilimitados</li>
+							<li>10GB de uploads mensais</li>
+							<li>200MB tamanho máximo de nota</li>
+							<li>Personalize o painel inicial e acesse widgets extras</li>
+							<li>Conecte conta principal do Google Calendar</li>
+							<li>
+								Adicione datas de vencimento, lembretes e notificações às suas
+								tarefas
+							</li>
 						</ul>
-						<a href="#" class="btn btn-primary">Get Started</a>
+						<a href="#" class="btn btn-primary">Começar Agora</a>
 					</div>
 
 					<div class="pricing-card">
-						<h3>Free</h3>
-						<div class="price">$0<span>/month</span></div>
-						<p>Capture ideas and find them quickly</p>
+						<h3>Grátis</h3>
+						<div class="price">R$0<span>/mês</span></div>
+						<p>Capture ideias e encontre-as rapidamente</p>
 						<ul class="pricing-features">
-							<li>Sync unlimited devices</li>
-							<li>10GB monthly uploads</li>
-							<li>200MB max. note size</li>
+							<li>Sincronize dispositivos ilimitados</li>
+							<li>10GB de uploads mensais</li>
+							<li>200MB tamanho máximo de nota</li>
 						</ul>
-						<a href="#" class="btn btn-outline">Get Started</a>
+						<a href="#" class="btn btn-outline">Começar Agora</a>
 					</div>
 				</div>
 			</div>
@@ -2002,11 +1913,16 @@
 		<!-- CTA Section -->
 		<section class="cta" id="cta">
 			<div class="container">
-				<h2>Try Whitepace today</h2>
-				<p>Get started for free. Add your whole team as your needs grow.</p>
+				<h2>Experimente o Whitepace hoje</h2>
+				<p>
+					Comece gratuitamente. Adicione toda sua equipe conforme suas
+					necessidades crescem.
+				</p>
 				<div class="cta-buttons">
-					<a href="#" class="btn btn-primary">Try It Today</a>
-					<a href="#" class="btn btn-outline">On a big team? Contact sales</a>
+					<a href="#" class="btn btn-primary">Experimente Hoje</a>
+					<a href="#" class="btn btn-outline"
+						>Tem uma equipe grande? Fale com vendas</a
+					>
 				</div>
 			</div>
 		</section>
@@ -2018,46 +1934,46 @@
 					<div class="footer-about">
 						<div class="footer-logo">white<span>pace</span></div>
 						<p>
-							whitepace was created for the new ways we live and work. We make a
-							better workspace around the world.
+							O whitepace foi criado para as novas formas de viver e trabalhar.
+							Criamos um melhor espaço de trabalho ao redor do mundo.
 						</p>
 					</div>
 
 					<div class="footer-links">
-						<h3>Product</h3>
+						<h3>Produto</h3>
 						<ul>
-							<li><a href="#">Overview</a></li>
-							<li><a href="#">Pricing</a></li>
-							<li><a href="#">Customer stories</a></li>
+							<li><a href="#">Visão Geral</a></li>
+							<li><a href="#">Preços</a></li>
+							<li><a href="#">Histórias de clientes</a></li>
 						</ul>
 					</div>
 
 					<div class="footer-links">
-						<h3>Resources</h3>
+						<h3>Recursos</h3>
 						<ul>
 							<li><a href="#">Blog</a></li>
-							<li><a href="#">Guides & tutorials</a></li>
-							<li><a href="#">Help center</a></li>
+							<li><a href="#">Guias e tutoriais</a></li>
+							<li><a href="#">Central de ajuda</a></li>
 						</ul>
 					</div>
 
 					<div class="footer-links">
-						<h3>Company</h3>
+						<h3>Empresa</h3>
 						<ul>
-							<li><a href="#">About us</a></li>
-							<li><a href="#">Careers</a></li>
-							<li><a href="#">Media kit</a></li>
+							<li><a href="#">Sobre nós</a></li>
+							<li><a href="#">Carreiras</a></li>
+							<li><a href="#">Kit de mídia</a></li>
 						</ul>
 					</div>
 				</div>
 
 				<div class="footer-bottom">
 					<div class="footer-copyright">
-						<p>©2021 Whitepace LLC. All rights reserved.</p>
+						<p>©2024 Whitepace LLC. Todos os direitos reservados.</p>
 					</div>
 					<div class="footer-links">
-						<a href="#">Terms & privacy</a>
-						<a href="#">Security</a>
+						<a href="#">Termos e privacidade</a>
+						<a href="#">Segurança</a>
 						<a href="#">Status</a>
 					</div>
 					<div class="footer-social">

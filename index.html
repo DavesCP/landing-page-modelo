@@ -1,0 +1,2295 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Whitepace - Project Management Software</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			/* Reset and Base Styles */
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				font-family: "Inter", sans-serif;
+			}
+
+			body {
+				color: #212529;
+				line-height: 1.6;
+			}
+
+			a {
+				text-decoration: none;
+				color: inherit;
+			}
+
+			ul {
+				list-style: none;
+			}
+
+			.container {
+				width: 100%;
+				max-width: 1400px;
+				margin: 0 auto;
+				padding: 0 20px;
+			}
+
+			.btn {
+				display: inline-block;
+				padding: 12px 24px;
+				border-radius: 8px;
+				font-weight: 500;
+				cursor: pointer;
+				transition: all 0.3s ease;
+			}
+
+			.btn-primary {
+				background-color: #4f9cf9;
+				color: white;
+			}
+
+			.btn-primary:hover {
+				background-color: #3a8df7;
+			}
+
+			.btn-outline {
+				border: 1px solid #4f9cf9;
+				color: #4f9cf9;
+			}
+
+			.btn-outline:hover {
+				background-color: #4f9cf9;
+				color: white;
+			}
+
+			/* Header Styles */
+			header {
+				background-color: #043873;
+				color: white;
+				padding: 20px 0;
+			}
+
+			.header-container {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			.logo {
+				font-size: 24px;
+				font-weight: 700;
+			}
+
+			.logo span {
+				color: #4f9cf9;
+			}
+
+			nav ul {
+				display: flex;
+				gap: 30px;
+			}
+
+			nav ul li a {
+				font-weight: 500;
+				transition: color 0.3s ease;
+			}
+
+			nav ul li a:hover {
+				color: #4f9cf9;
+			}
+
+			.header-actions {
+				display: flex;
+				gap: 15px;
+			}
+
+			/* Hero Section */
+			.hero {
+				background-color: #043873;
+				color: white;
+				padding: 80px 0;
+			}
+
+			.hero-container {
+				display: flex;
+				align-items: center;
+				gap: 50px;
+			}
+
+			.hero-content {
+				flex: 1;
+			}
+
+			.hero h1 {
+				font-size: 48px;
+				font-weight: 700;
+				margin-bottom: 20px;
+				line-height: 1.2;
+			}
+
+			.hero h1 span {
+				color: #4f9cf9;
+			}
+
+			.hero p {
+				font-size: 18px;
+				margin-bottom: 30px;
+				max-width: 600px;
+			}
+
+			.hero-image {
+				flex: 1;
+			}
+
+			.hero-image img {
+				width: 100%;
+				border-radius: 10px;
+			}
+
+			/* Features Section */
+			.features {
+				padding: 80px 0;
+			}
+
+			.features-header {
+				text-align: center;
+				margin-bottom: 50px;
+			}
+
+			.features-header h2 {
+				font-size: 36px;
+				font-weight: 700;
+				margin-bottom: 15px;
+			}
+
+			.features-header p {
+				color: #666;
+				max-width: 700px;
+				margin: 0 auto;
+			}
+
+			.features-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 30px;
+			}
+
+			.feature-card {
+				background-color: #f9f9f9;
+				border-radius: 10px;
+				padding: 30px;
+				transition: transform 0.3s ease;
+			}
+
+			.feature-card:hover {
+				transform: translateY(-10px);
+			}
+
+			.feature-icon {
+				font-size: 40px;
+				margin-bottom: 20px;
+				color: #4f9cf9;
+			}
+
+			.feature-card h3 {
+				font-size: 22px;
+				margin-bottom: 15px;
+			}
+
+			/* Pricing Section */
+			.pricing {
+				background-color: #f5f8ff;
+				padding: 80px 0;
+			}
+
+			.pricing-header {
+				text-align: center;
+				margin-bottom: 50px;
+			}
+
+			.pricing-header h2 {
+				font-size: 36px;
+				font-weight: 700;
+				margin-bottom: 15px;
+			}
+
+			.pricing-header p {
+				color: #666;
+				max-width: 700px;
+				margin: 0 auto;
+			}
+
+			.pricing-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 30px;
+			}
+
+			.pricing-card {
+				background-color: white;
+				border-radius: 10px;
+				padding: 40px 30px;
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+			}
+
+			.pricing-card.popular {
+				border: 2px solid #4f9cf9;
+				position: relative;
+			}
+
+			.popular-tag {
+				position: absolute;
+				top: -15px;
+				right: 20px;
+				background-color: #4f9cf9;
+				color: white;
+				padding: 5px 15px;
+				border-radius: 20px;
+				font-size: 14px;
+				font-weight: 500;
+			}
+
+			.pricing-card h3 {
+				font-size: 24px;
+				margin-bottom: 15px;
+			}
+
+			.price {
+				font-size: 36px;
+				font-weight: 700;
+				margin-bottom: 20px;
+			}
+
+			.price span {
+				font-size: 16px;
+				font-weight: 400;
+				color: #666;
+			}
+
+			.pricing-features {
+				margin-bottom: 30px;
+			}
+
+			.pricing-features li {
+				margin-bottom: 10px;
+				display: flex;
+				align-items: center;
+				gap: 10px;
+			}
+
+			.pricing-features li::before {
+				content: "✓";
+				color: #4f9cf9;
+				font-weight: bold;
+			}
+
+			/* Testimonials Section */
+			.testimonials {
+				padding: 80px 0;
+			}
+
+			.testimonials-header {
+				text-align: center;
+				margin-bottom: 50px;
+			}
+
+			.testimonials-header h2 {
+				font-size: 36px;
+				font-weight: 700;
+				margin-bottom: 15px;
+			}
+
+			.testimonial-card {
+				background-color: white;
+				border-radius: 10px;
+				padding: 30px;
+				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+				max-width: 800px;
+				margin: 0 auto;
+				text-align: center;
+			}
+
+			.testimonial-text {
+				font-size: 18px;
+				font-style: italic;
+				margin-bottom: 20px;
+			}
+
+			.testimonial-author {
+				font-weight: 700;
+			}
+
+			.testimonial-position {
+				color: #666;
+				font-size: 14px;
+			}
+
+			/* CTA Section */
+			.cta {
+				background-color: #043873;
+				color: white;
+				padding: 80px 0;
+				text-align: center;
+			}
+
+			.cta h2 {
+				font-size: 36px;
+				font-weight: 700;
+				margin-bottom: 20px;
+			}
+
+			.cta p {
+				font-size: 18px;
+				margin-bottom: 30px;
+				max-width: 700px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			.cta-buttons {
+				display: flex;
+				justify-content: center;
+				gap: 20px;
+			}
+
+			/* Footer */
+			footer {
+				background-color: #043873;
+				color: #fff;
+				padding: 60px 0 30px;
+			}
+
+			.footer-grid {
+				display: grid;
+				grid-template-columns: repeat(4, 1fr);
+				gap: 40px;
+				margin-bottom: 40px;
+			}
+
+			.footer-logo {
+				font-size: 24px;
+				font-weight: 700;
+				margin-bottom: 20px;
+			}
+
+			.footer-logo span {
+				color: #4f9cf9;
+			}
+
+			.footer-about p {
+				margin-bottom: 20px;
+			}
+
+			.footer-links h3 {
+				font-size: 18px;
+				font-weight: 600;
+				margin-bottom: 20px;
+			}
+
+			.footer-links ul li {
+				margin-bottom: 10px;
+			}
+
+			.footer-links ul li a {
+				color: #fff;
+				transition: color 0.3s;
+			}
+
+			.footer-links ul li a:hover {
+				color: #4f9cf9;
+			}
+
+			.footer-bottom {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding-top: 30px;
+				border-top: 1px solid #29508a;
+			}
+
+			.footer-copyright p {
+				color: #fff;
+			}
+
+			.footer-bottom .footer-links a {
+				color: #fff;
+				margin-right: 20px;
+				transition: color 0.3s;
+			}
+
+			.footer-bottom .footer-links a:hover {
+				color: #4f9cf9;
+			}
+
+			.footer-social {
+				display: flex;
+				gap: 15px;
+			}
+
+			.footer-social a {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				width: 36px;
+				height: 36px;
+				background-color: #29508a;
+				color: #fff;
+				border-radius: 50%;
+				transition: all 0.3s ease;
+			}
+
+			.footer-social a:hover {
+				background-color: #4f9cf9;
+				color: #fff;
+			}
+
+			/* Responsive Styles */
+			@media (max-width: 992px) {
+				.features-grid,
+				.pricing-grid,
+				.footer-grid {
+					grid-template-columns: repeat(2, 1fr);
+				}
+
+				.hero-container {
+					flex-direction: column;
+				}
+			}
+
+			@media (max-width: 768px) {
+				nav {
+					display: none;
+				}
+
+				.hero h1 {
+					font-size: 36px;
+				}
+
+				.features-grid,
+				.pricing-grid {
+					grid-template-columns: 1fr;
+				}
+
+				.footer-grid {
+					grid-template-columns: 1fr 1fr;
+				}
+
+				.cta-buttons {
+					flex-direction: column;
+					align-items: center;
+				}
+			}
+
+			@media (max-width: 576px) {
+				.footer-grid {
+					grid-template-columns: 1fr;
+				}
+
+				.footer-bottom {
+					flex-direction: column;
+					gap: 20px;
+					text-align: center;
+				}
+			}
+
+			/* Hamburger and Sidebar Styles */
+			.hamburger {
+				display: none;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				width: 40px;
+				height: 40px;
+				background: none;
+				border: none;
+				cursor: pointer;
+				z-index: 1101;
+			}
+			.hamburger span {
+				display: block;
+				width: 28px;
+				height: 3px;
+				background: #fff;
+				margin: 4px 0;
+				border-radius: 2px;
+				transition: 0.3s;
+			}
+			.sidebar {
+				position: fixed;
+				top: 0;
+				left: -320px;
+				width: 280px;
+				height: 100vh;
+				background: #043873;
+				color: #fff;
+				box-shadow: 2px 0 16px rgba(0, 0, 0, 0.08);
+				z-index: 1100;
+				padding: 40px 24px 24px 24px;
+				transition: left 0.3s;
+				display: flex;
+				flex-direction: column;
+			}
+			.sidebar.open {
+				left: 0;
+			}
+			.close-sidebar {
+				background: none;
+				border: none;
+				color: #fff;
+				font-size: 2rem;
+				position: absolute;
+				top: 18px;
+				right: 18px;
+				cursor: pointer;
+			}
+			.sidebar ul {
+				margin-top: 40px;
+				display: flex;
+				flex-direction: column;
+				gap: 24px;
+			}
+			.sidebar ul li a {
+				color: #fff;
+				font-size: 1.2rem;
+				font-weight: 500;
+				transition: color 0.2s;
+			}
+			.sidebar ul li a:hover {
+				color: #4f9cf9;
+			}
+			@media (max-width: 992px) {
+				.main-nav {
+					display: none;
+				}
+				.header-actions {
+					display: none;
+				}
+				.hamburger {
+					display: flex;
+				}
+			}
+			/* Back to Top Button */
+			.back-to-top {
+				position: fixed;
+				bottom: 80px;
+				right: 32px;
+				background: linear-gradient(135deg, #4f9cf9 0%, #043873 100%);
+				color: #fff;
+				border-radius: 50%;
+				width: 48px;
+				height: 48px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				box-shadow: 0 4px 16px rgba(4, 56, 115, 0.18);
+				opacity: 0;
+				pointer-events: none;
+				transition: opacity 0.3s, background 0.3s;
+				z-index: 1200;
+			}
+			.back-to-top.show {
+				opacity: 1;
+				pointer-events: auto;
+			}
+			.back-to-top:hover {
+				background: linear-gradient(135deg, #043873 0%, #4f9cf9 100%);
+			}
+			.back-to-top svg {
+				color: #fff;
+				stroke: #fff;
+			}
+			@media (max-width: 576px) {
+				.back-to-top {
+					bottom: 56px;
+					right: 16px;
+					width: 40px;
+					height: 40px;
+				}
+			}
+			.sponsor-carousel-outer {
+				padding: 0 40px;
+				box-sizing: border-box;
+				overflow: hidden;
+				width: 100%;
+				max-width: 600px;
+				margin: 32px auto 0 auto;
+			}
+			.sponsor-carousel.infinite {
+				display: flex;
+				gap: 32px;
+				align-items: center;
+				width: max-content;
+			}
+			.sponsor-logo-circle {
+				width: 64px;
+				height: 64px;
+				background: #fff;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				box-shadow: 0 2px 8px rgba(4, 56, 115, 0.1);
+				transition: transform 0.2s;
+			}
+			.sponsor-logo-circle svg {
+				width: 40px;
+				height: 40px;
+				display: block;
+			}
+			@media (max-width: 900px) {
+				.sponsor-carousel-outer {
+					padding: 0 10px;
+					max-width: 98vw;
+				}
+				.sponsor-logo-circle {
+					width: 48px;
+					height: 48px;
+				}
+				.sponsor-carousel.infinite {
+					gap: 16px;
+				}
+				.sponsor-logo-circle svg {
+					width: 28px;
+					height: 28px;
+				}
+			}
+			@media (max-width: 700px) {
+				.sponsor-carousel-outer {
+					padding: 0 4px;
+				}
+			}
+			.sponsor-logo-circle {
+				width: 80px;
+				height: 80px;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				box-shadow: 0 4px 20px rgba(4, 56, 115, 0.08);
+				transition: all 0.3s ease;
+			}
+
+			.sponsor-logo-circle:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 8px 25px rgba(4, 56, 115, 0.12);
+			}
+
+			.sponsor-carousel.infinite {
+				display: flex;
+				gap: 40px;
+				align-items: center;
+				width: max-content;
+			}
+
+			@media (max-width: 900px) {
+				.sponsor-carousel-outer {
+					padding: 0 20px;
+					max-width: 98vw;
+				}
+				.sponsor-logo-circle {
+					width: 64px;
+					height: 64px;
+				}
+				.sponsor-carousel.infinite {
+					gap: 24px;
+				}
+				.sponsor-logo-circle img {
+					width: 32px;
+					height: 32px;
+				}
+			}
+
+			@media (max-width: 700px) {
+				.sponsor-carousel-outer {
+					padding: 0 10px;
+				}
+				.sponsor-logo-circle {
+					width: 56px;
+					height: 56px;
+				}
+				.sponsor-carousel.infinite {
+					gap: 16px;
+				}
+				.sponsor-logo-circle img {
+					width: 28px;
+					height: 28px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Header -->
+		<header>
+			<div class="container header-container">
+				<div class="logo">white<span>pace</span></div>
+				<nav class="main-nav">
+					<ul>
+						<li><a href="#hero">Home</a></li>
+						<li><a href="#features">Features</a></li>
+						<li><a href="#about">About</a></li>
+						<li><a href="#sponsors">Sponsors</a></li>
+						<li><a href="#testimonials">Testimonials</a></li>
+						<li><a href="#pricing">Pricing</a></li>
+					</ul>
+				</nav>
+				<div class="header-actions">
+					<a href="#" class="btn btn-outline">Login</a>
+					<a href="#" class="btn btn-primary">Try Whitepace free</a>
+				</div>
+				<!-- Hamburger Icon -->
+				<button class="hamburger" id="hamburger" aria-label="Open menu">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+			</div>
+			<!-- Off-canvas Sidebar (from left) -->
+			<aside class="sidebar" id="sidebar">
+				<div
+					class="sidebar-logo"
+					style="
+						font-size: 24px;
+						font-weight: 700;
+						margin-bottom: 32px;
+						display: flex;
+						align-items: center;
+						gap: 4px;
+					"
+				>
+					white<span style="color: #4f9cf9">pace</span>
+				</div>
+				<button class="close-sidebar" id="closeSidebar" aria-label="Close menu">
+					&times;
+				</button>
+				<ul>
+					<li><a href="#hero" class="sidebar-link">Home</a></li>
+					<li><a href="#features" class="sidebar-link">Features</a></li>
+					<li><a href="#about" class="sidebar-link">About</a></li>
+					<li><a href="#sponsors" class="sidebar-link">Sponsors</a></li>
+					<li><a href="#testimonials" class="sidebar-link">Testimonials</a></li>
+					<li><a href="#pricing" class="sidebar-link">Pricing</a></li>
+				</ul>
+			</aside>
+		</header>
+
+		<!-- Hero Section -->
+		<section class="hero" id="hero">
+			<div class="container hero-container">
+				<div class="hero-content">
+					<h1>Get More Done with <span>whitepace</span></h1>
+					<p>
+						Project management software that enables your teams to collaborate,
+						plan, analyze and manage everyday tasks
+					</p>
+					<a href="#" class="btn btn-primary">Try Whitepace free</a>
+				</div>
+				<div class="hero-image">
+					<img
+						src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80"
+						alt="Whitepace Dashboard"
+					/>
+				</div>
+			</div>
+		</section>
+
+		<!-- Features Section -->
+		<section class="features" id="features">
+			<div class="container">
+				<div class="features-header">
+					<h2>Project Management</h2>
+					<p>
+						Images, videos, PDFs and audio files are supported. Create math
+						expressions and diagrams directly from the app. Take photos with the
+						mobile app and save them to a note.
+					</p>
+				</div>
+
+				<div class="features-grid">
+					<div class="feature-card">
+						<div class="feature-icon" aria-hidden="true">
+							<!-- Teamwork SVG Icon -->
+							<svg
+								width="48"
+								height="48"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="#4f9cf9"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<circle cx="9" cy="7" r="4" />
+								<path d="M17 11v-1a4 4 0 0 0-4-4" />
+								<rect x="13" y="13" width="8" height="6" rx="3" />
+								<path d="M6 21v-2a4 4 0 0 1 4-4h0a4 4 0 0 1 4 4v2" />
+							</svg>
+						</div>
+						<h3>Work together</h3>
+						<p>
+							With whitepace, share your notes with your colleagues and
+							collaborate on them. You can also publish a note to the internet
+							and share the URL with others.
+						</p>
+					</div>
+
+					<div class="feature-card">
+						<div class="feature-icon" aria-hidden="true">
+							<!-- Extension/Plugin SVG Icon -->
+							<svg
+								width="48"
+								height="48"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="#4f9cf9"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<rect x="3" y="3" width="7" height="7" rx="2" />
+								<rect x="14" y="3" width="7" height="7" rx="2" />
+								<rect x="14" y="14" width="7" height="7" rx="2" />
+								<rect x="3" y="14" width="7" height="7" rx="2" />
+							</svg>
+						</div>
+						<h3>Use as Extension</h3>
+						<p>
+							Use the web clipper extension, available on Chrome and Firefox, to
+							save web pages or take screenshots as notes.
+						</p>
+					</div>
+
+					<div class="feature-card">
+						<div class="feature-icon" aria-hidden="true">
+							<!-- Customization SVG Icon -->
+							<svg
+								width="48"
+								height="48"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="#4f9cf9"
+								stroke-width="2"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+							>
+								<circle cx="12" cy="12" r="3" />
+								<path
+									d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 8 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 5 15.82 1.65 1.65 0 0 0 3.5 15H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 8a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 8 4.6a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09A1.65 1.65 0 0 0 16 4.6a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 8c.14.31.22.65.22 1v.09A1.65 1.65 0 0 0 21 12c0 .35-.08.69-.22 1z"
+								/>
+							</svg>
+						</div>
+						<h3>Customise it to your needs</h3>
+						<p>
+							Customise the app with plugins, custom themes and multiple text
+							editors (Rich Text or Markdown). Or create your own scripts and
+							plugins using the Extension API.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Additional Features Section -->
+		<section
+			class="features"
+			id="about"
+			style="background-color: #043873; color: white; padding: 100px 0"
+		>
+			<div class="container">
+				<div
+					class="features-header"
+					style="text-align: center; margin-bottom: 60px"
+				>
+					<h2 style="color: white; font-size: 36px; margin-bottom: 16px">
+						Your work, everywhere you are
+					</h2>
+					<p
+						style="
+							color: rgba(255, 255, 255, 0.8);
+							max-width: 700px;
+							margin: 0 auto;
+							font-size: 16px;
+						"
+					>
+						Access your notes from your computer, phone or tablet by
+						synchronising with various services, including whitepace, Dropbox
+						and OneDrive. The app is available on Windows, macOS, Linux, Android
+						and iOS. A terminal app is also available!
+					</p>
+				</div>
+
+				<div
+					class="about-grid"
+					style="
+						display: grid;
+						grid-template-columns: 1fr 1fr;
+						gap: 40px;
+						align-items: center;
+						margin-top: 60px;
+					"
+				>
+					<div class="about-content">
+						<h3 style="font-size: 28px; margin-bottom: 20px; color: white">
+							Work together with your team
+						</h3>
+						<p
+							style="
+								font-size: 16px;
+								line-height: 1.8;
+								color: rgba(255, 255, 255, 0.8);
+								margin-bottom: 24px;
+							"
+						>
+							Stay connected with your team and make quick decisions wherever
+							you are. With Whitepace, all your team's work is organized in one
+							place, making it easy to collaborate and stay productive.
+						</p>
+						<ul style="list-style: none; margin-bottom: 32px">
+							<li
+								style="
+									display: flex;
+									align-items: center;
+									margin-bottom: 16px;
+									color: rgba(255, 255, 255, 0.8);
+								"
+							>
+								<svg
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="#4f9cf9"
+									stroke-width="2"
+									style="margin-right: 12px"
+								>
+									<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+									<polyline points="22 4 12 14.01 9 11.01"></polyline>
+								</svg>
+								Real-time collaboration
+							</li>
+							<li
+								style="
+									display: flex;
+									align-items: center;
+									margin-bottom: 16px;
+									color: rgba(255, 255, 255, 0.8);
+								"
+							>
+								<svg
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="#4f9cf9"
+									stroke-width="2"
+									style="margin-right: 12px"
+								>
+									<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+									<polyline points="22 4 12 14.01 9 11.01"></polyline>
+								</svg>
+								Cloud synchronization
+							</li>
+							<li
+								style="
+									display: flex;
+									align-items: center;
+									margin-bottom: 16px;
+									color: rgba(255, 255, 255, 0.8);
+								"
+							>
+								<svg
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="#4f9cf9"
+									stroke-width="2"
+									style="margin-right: 12px"
+								>
+									<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+									<polyline points="22 4 12 14.01 9 11.01"></polyline>
+								</svg>
+								Cross-platform support
+							</li>
+						</ul>
+						<a
+							href="#pricing"
+							class="btn btn-primary"
+							style="display: inline-block; background-color: #4f9cf9"
+							>Try Whitepace free</a
+						>
+					</div>
+					<div class="about-image" style="position: relative">
+						<img
+							src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
+							alt="Team collaboration"
+							style="
+								width: 100%;
+								border-radius: 12px;
+								box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+							"
+						/>
+						<div
+							style="
+								position: absolute;
+								bottom: -20px;
+								right: -20px;
+								background: #4f9cf9;
+								padding: 20px;
+								border-radius: 12px;
+								color: white;
+								box-shadow: 0 10px 20px rgba(79, 156, 249, 0.3);
+							"
+						>
+							<div
+								style="font-size: 24px; font-weight: 700; margin-bottom: 4px"
+							>
+								98%
+							</div>
+							<div style="font-size: 14px">Customer satisfaction</div>
+						</div>
+					</div>
+				</div>
+
+				<div
+					class="features-header"
+					style="text-align: center; margin-top: 100px; margin-bottom: 60px"
+				>
+					<h2 style="color: white; font-size: 36px; margin-bottom: 16px">
+						100% your data
+					</h2>
+					<p
+						style="
+							color: rgba(255, 255, 255, 0.8);
+							max-width: 700px;
+							margin: 0 auto;
+							font-size: 16px;
+						"
+					>
+						The app is open source and your notes are saved to an open format,
+						so you'll always have access to them. Uses End-To-End Encryption
+						(E2EE) to secure your notes and ensure no-one but yourself can
+						access them.
+					</p>
+				</div>
+
+				<div
+					class="about-grid"
+					style="
+						display: grid;
+						grid-template-columns: 1fr 1fr;
+						gap: 40px;
+						align-items: center;
+						margin-top: 60px;
+					"
+				>
+					<div class="about-image" style="position: relative">
+						<img
+							src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=80"
+							alt="Data security and privacy"
+							style="
+								width: 100%;
+								border-radius: 12px;
+								box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+							"
+						/>
+						<div
+							style="
+								position: absolute;
+								bottom: -20px;
+								left: -20px;
+								background: #4f9cf9;
+								padding: 20px;
+								border-radius: 12px;
+								color: white;
+								box-shadow: 0 10px 20px rgba(79, 156, 249, 0.3);
+							"
+						>
+							<div
+								style="font-size: 24px; font-weight: 700; margin-bottom: 4px"
+							>
+								E2EE
+							</div>
+							<div style="font-size: 14px">End-to-End Encryption</div>
+						</div>
+					</div>
+					<div class="about-content">
+						<h3 style="font-size: 28px; margin-bottom: 20px; color: white">
+							Your data is secure with us
+						</h3>
+						<p
+							style="
+								font-size: 16px;
+								line-height: 1.8;
+								color: rgba(255, 255, 255, 0.8);
+								margin-bottom: 24px;
+							"
+						>
+							We take your privacy seriously. Your data is encrypted end-to-end,
+							meaning only you can access your notes. Our open-source approach
+							ensures transparency and gives you full control over your
+							information.
+						</p>
+						<ul style="list-style: none; margin-bottom: 32px">
+							<li
+								style="
+									display: flex;
+									align-items: center;
+									margin-bottom: 16px;
+									color: rgba(255, 255, 255, 0.8);
+								"
+							>
+								<svg
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="#4f9cf9"
+									stroke-width="2"
+									style="margin-right: 12px"
+								>
+									<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+								</svg>
+								End-to-End Encryption
+							</li>
+							<li
+								style="
+									display: flex;
+									align-items: center;
+									margin-bottom: 16px;
+									color: rgba(255, 255, 255, 0.8);
+								"
+							>
+								<svg
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="#4f9cf9"
+									stroke-width="2"
+									style="margin-right: 12px"
+								>
+									<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+								</svg>
+								Open Source Code
+							</li>
+							<li
+								style="
+									display: flex;
+									align-items: center;
+									margin-bottom: 16px;
+									color: rgba(255, 255, 255, 0.8);
+								"
+							>
+								<svg
+									width="24"
+									height="24"
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="#4f9cf9"
+									stroke-width="2"
+									style="margin-right: 12px"
+								>
+									<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+								</svg>
+								Full Data Control
+							</li>
+						</ul>
+						<a
+							href="#pricing"
+							class="btn btn-primary"
+							style="display: inline-block; background-color: #4f9cf9"
+							>Learn more about security</a
+						>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Sponsors Section -->
+		<section
+			id="sponsors"
+			class="features"
+			style="background-color: #ffffff; padding: 80px 0"
+		>
+			<div class="container">
+				<div class="features-header">
+					<h2 style="color: #043873">Our sponsors</h2>
+					<div
+						class="sponsor-carousel-outer"
+						style="max-width: 800px; margin: 40px auto 0"
+					>
+						<div class="sponsor-carousel infinite" id="sponsorCarousel">
+							<!-- Logo 1: Android -->
+							<div
+								class="sponsor-logo-circle"
+								style="
+									background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+								"
+							>
+								<img
+									src="assets/icons/android-logo.svg"
+									alt="Android Logo"
+									width="40"
+									height="40"
+									style="filter: brightness(0.9)"
+								/>
+							</div>
+							<!-- Logo 2: Skype -->
+							<div
+								class="sponsor-logo-circle"
+								style="
+									background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+								"
+							>
+								<img
+									src="assets/icons/skype-logo.svg"
+									alt="Skype Logo"
+									width="40"
+									height="40"
+									style="filter: brightness(0.9)"
+								/>
+							</div>
+							<!-- Logo 3: Instagram -->
+							<div
+								class="sponsor-logo-circle"
+								style="
+									background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+								"
+							>
+								<img
+									src="assets/icons/instagram-logo.svg"
+									alt="Instagram Logo"
+									width="40"
+									height="40"
+									style="filter: brightness(0.9)"
+								/>
+							</div>
+							<!-- Logo 4: YouTube -->
+							<div
+								class="sponsor-logo-circle"
+								style="
+									background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+								"
+							>
+								<img
+									src="assets/icons/youtube-logo.svg"
+									alt="YouTube Logo"
+									width="40"
+									height="40"
+									style="filter: brightness(0.9)"
+								/>
+							</div>
+							<!-- Logo 5: Twitter -->
+							<div
+								class="sponsor-logo-circle"
+								style="
+									background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+								"
+							>
+								<img
+									src="assets/icons/twitter-logo.svg"
+									alt="Twitter Logo"
+									width="40"
+									height="40"
+									style="filter: brightness(0.9)"
+								/>
+							</div>
+							<!-- Logo 6: LinkedIn -->
+							<div
+								class="sponsor-logo-circle"
+								style="
+									background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+								"
+							>
+								<img
+									src="assets/icons/linkedin-logo.svg"
+									alt="LinkedIn Logo"
+									width="40"
+									height="40"
+									style="filter: brightness(0.9)"
+								/>
+							</div>
+							<!-- Logo 7: Google -->
+							<div
+								class="sponsor-logo-circle"
+								style="
+									background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+								"
+							>
+								<img
+									src="assets/icons/google-logo.svg"
+									alt="Google Logo"
+									width="40"
+									height="40"
+									style="filter: brightness(0.9)"
+								/>
+							</div>
+							<!-- Logo 8: Facebook -->
+							<div
+								class="sponsor-logo-circle"
+								style="
+									background: linear-gradient(135deg, #f0f7ff 0%, #e6f0ff 100%);
+								"
+							>
+								<img
+									src="assets/icons/facebook-logo.svg"
+									alt="Facebook Logo"
+									width="40"
+									height="40"
+									style="filter: brightness(0.9)"
+								/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Apps Integration Section -->
+		<section
+			class="features"
+			id="contact"
+			style="background-color: #f5f8ff; padding: 100px 0"
+		>
+			<div class="container">
+				<div
+					class="features-header"
+					style="text-align: center; margin-bottom: 60px"
+				>
+					<h2 style="font-size: 36px; color: #043873; margin-bottom: 16px">
+						Work with Your Favorite Apps Using whitepace
+					</h2>
+					<p
+						style="
+							color: #666;
+							max-width: 700px;
+							margin: 0 auto;
+							font-size: 16px;
+						"
+					>
+						Whitepace teams up with your favorite software. Integrate with over
+						1000+ apps with Zapier to have all the tools you need for your
+						project success.
+					</p>
+				</div>
+
+				<div
+					style="
+						display: grid;
+						grid-template-columns: repeat(3, 1fr);
+						gap: 30px;
+						margin-bottom: 60px;
+					"
+				>
+					<!-- App Integration Card 1 -->
+					<div
+						style="
+							background: white;
+							border-radius: 16px;
+							padding: 32px;
+							box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+							transition: transform 0.3s ease;
+						"
+					>
+						<div
+							style="
+								width: 64px;
+								height: 64px;
+								background: #f0f7ff;
+								border-radius: 12px;
+								display: flex;
+								align-items: center;
+								justify-content: center;
+								margin-bottom: 24px;
+							"
+						>
+							<img
+								src="https://cdn.worldvectorlogo.com/logos/slack-new-logo.svg"
+								alt="Slack"
+								style="width: 40px; height: 40px"
+							/>
+						</div>
+						<h3 style="font-size: 20px; color: #043873; margin-bottom: 16px">
+							Slack Integration
+						</h3>
+						<p
+							style="
+								color: #666;
+								font-size: 15px;
+								line-height: 1.6;
+								margin-bottom: 20px;
+							"
+						>
+							Connect your Slack workspace to Whitepace and get instant
+							notifications about your projects and tasks.
+						</p>
+						<a
+							href="#"
+							style="
+								color: #4f9cf9;
+								font-weight: 500;
+								display: inline-flex;
+								align-items: center;
+								gap: 8px;
+							"
+						>
+							Learn more
+							<svg
+								width="20"
+								height="20"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+							>
+								<path d="M5 12h14M12 5l7 7-7 7" />
+							</svg>
+						</a>
+					</div>
+
+					<!-- App Integration Card 2 -->
+					<div
+						style="
+							background: white;
+							border-radius: 16px;
+							padding: 32px;
+							box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+							transition: transform 0.3s ease;
+						"
+					>
+						<div
+							style="
+								width: 64px;
+								height: 64px;
+								background: #f0f7ff;
+								border-radius: 12px;
+								display: flex;
+								align-items: center;
+								justify-content: center;
+								margin-bottom: 24px;
+							"
+						>
+							<object
+								data="assets/icons/google-calendar.svg"
+								type="image/svg+xml"
+								style="width: 40px; height: 40px"
+							>
+								<img
+									src="assets/icons/google-calendar.svg"
+									alt="Google Calendar"
+									style="width: 40px; height: 40px"
+								/>
+							</object>
+						</div>
+						<h3 style="font-size: 20px; color: #043873; margin-bottom: 16px">
+							Google Calendar
+						</h3>
+						<p
+							style="
+								color: #666;
+								font-size: 15px;
+								line-height: 1.6;
+								margin-bottom: 20px;
+							"
+						>
+							Sync your Google Calendar with Whitepace to manage your schedule
+							and deadlines in one place.
+						</p>
+						<a
+							href="#"
+							style="
+								color: #4f9cf9;
+								font-weight: 500;
+								display: inline-flex;
+								align-items: center;
+								gap: 8px;
+							"
+						>
+							Learn more
+							<svg
+								width="20"
+								height="20"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+							>
+								<path d="M5 12h14M12 5l7 7-7 7" />
+							</svg>
+						</a>
+					</div>
+
+					<!-- App Integration Card 3 -->
+					<div
+						style="
+							background: white;
+							border-radius: 16px;
+							padding: 32px;
+							box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+							transition: transform 0.3s ease;
+						"
+					>
+						<div
+							style="
+								width: 64px;
+								height: 64px;
+								background: #f0f7ff;
+								border-radius: 12px;
+								display: flex;
+								align-items: center;
+								justify-content: center;
+								margin-bottom: 24px;
+							"
+						>
+							<img
+								src="https://cdn.worldvectorlogo.com/logos/dropbox-1.svg"
+								alt="Dropbox"
+								style="width: 40px; height: 40px"
+							/>
+						</div>
+						<h3 style="font-size: 20px; color: #043873; margin-bottom: 16px">
+							Dropbox Sync
+						</h3>
+						<p
+							style="
+								color: #666;
+								font-size: 15px;
+								line-height: 1.6;
+								margin-bottom: 20px;
+							"
+						>
+							Automatically sync your Dropbox files with Whitepace for seamless
+							file management and collaboration.
+						</p>
+						<a
+							href="#"
+							style="
+								color: #4f9cf9;
+								font-weight: 500;
+								display: inline-flex;
+								align-items: center;
+								gap: 8px;
+							"
+						>
+							Learn more
+							<svg
+								width="20"
+								height="20"
+								viewBox="0 0 24 24"
+								fill="none"
+								stroke="currentColor"
+								stroke-width="2"
+							>
+								<path d="M5 12h14M12 5l7 7-7 7" />
+							</svg>
+						</a>
+					</div>
+				</div>
+
+				<div style="text-align: center">
+					<div
+						style="
+							background: white;
+							border-radius: 16px;
+							padding: 40px;
+							box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+							margin-bottom: 40px;
+						"
+					>
+						<img
+							src="https://cdn.worldvectorlogo.com/logos/zapier.svg"
+							alt="Zapier"
+							style="width: 120px; height: 40px; margin-bottom: 24px"
+						/>
+						<h3 style="font-size: 24px; color: #043873; margin-bottom: 16px">
+							Connect with 1000+ Apps
+						</h3>
+						<p
+							style="
+								color: #666;
+								font-size: 16px;
+								line-height: 1.6;
+								max-width: 600px;
+								margin: 0 auto 24px;
+							"
+						>
+							Use Zapier to connect Whitepace with your favorite apps and
+							automate your workflow. No coding required.
+						</p>
+						<a
+							href="#"
+							class="btn btn-primary"
+							style="display: inline-block; background-color: #4f9cf9"
+							>Explore Integrations</a
+						>
+					</div>
+
+					<div
+						style="
+							display: flex;
+							justify-content: center;
+							gap: 20px;
+							flex-wrap: wrap;
+						"
+					>
+						<img
+							src="https://cdn.worldvectorlogo.com/logos/trello.svg"
+							alt="Trello"
+							style="height: 32px; opacity: 0.7"
+						/>
+						<img
+							src="https://cdn.worldvectorlogo.com/logos/asana-1.svg"
+							alt="Asana"
+							style="height: 32px; opacity: 0.7"
+						/>
+						<img
+							src="https://cdn.worldvectorlogo.com/logos/jira-1.svg"
+							alt="Jira"
+							style="height: 32px; opacity: 0.7"
+						/>
+						<object
+							data="assets/icons/notion-logo.svg"
+							type="image/svg+xml"
+							style="height: 32px; opacity: 0.7"
+						>
+							<img
+								src="assets/icons/notion-logo.svg"
+								alt="Notion"
+								style="height: 32px; opacity: 0.7"
+							/>
+						</object>
+						<img
+							src="https://cdn.worldvectorlogo.com/logos/monday-1.svg"
+							alt="Monday"
+							style="height: 32px; opacity: 0.7"
+						/>
+						<img
+							src="https://cdn.worldvectorlogo.com/logos/clickup.svg"
+							alt="ClickUp"
+							style="height: 32px; opacity: 0.7"
+						/>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Testimonials Section -->
+		<section
+			class="testimonials"
+			id="testimonials"
+			style="background-color: #043873; color: white; padding: 100px 0"
+		>
+			<div class="container">
+				<div
+					class="testimonials-header"
+					style="text-align: center; margin-bottom: 60px"
+				>
+					<h2 style="font-size: 36px; color: white; margin-bottom: 16px">
+						What Our Clients Says
+					</h2>
+					<p
+						style="
+							color: rgba(255, 255, 255, 0.8);
+							max-width: 600px;
+							margin: 0 auto;
+							font-size: 16px;
+						"
+					>
+						Trusted by thousands of users and teams worldwide. See what our
+						clients have to say about their experience with Whitepace.
+					</p>
+				</div>
+
+				<div
+					class="testimonials-grid"
+					style="
+						display: grid;
+						grid-template-columns: repeat(3, 1fr);
+						gap: 30px;
+						margin-bottom: 40px;
+					"
+				>
+					<!-- Testimonial 1 -->
+					<div
+						class="testimonial-card"
+						style="
+							background: rgba(255, 255, 255, 0.05);
+							border-radius: 16px;
+							padding: 32px;
+							box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+							position: relative;
+							backdrop-filter: blur(10px);
+							border: 1px solid rgba(255, 255, 255, 0.1);
+						"
+					>
+						<div
+							style="
+								position: absolute;
+								top: -20px;
+								left: 32px;
+								width: 64px;
+								height: 64px;
+								border-radius: 50%;
+								overflow: hidden;
+								border: 4px solid #043873;
+								box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+							"
+						>
+							<img
+								src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=128&h=128&q=80"
+								alt="Oberon Shaw"
+								style="width: 100%; height: 100%; object-fit: cover"
+							/>
+						</div>
+						<div style="margin-top: 40px">
+							<div
+								style="
+									color: rgba(255, 255, 255, 0.9);
+									font-size: 15px;
+									line-height: 1.6;
+									margin-bottom: 24px;
+								"
+							>
+								"Whitepace is designed as a collaboration tool for businesses
+								that is a full project management solution. It's been a
+								game-changer for our team's productivity."
+							</div>
+							<div style="display: flex; align-items: center; gap: 12px">
+								<div>
+									<div
+										style="font-weight: 600; color: white; margin-bottom: 4px"
+									>
+										Oberon Shaw
+									</div>
+									<div style="font-size: 14px; color: rgba(255, 255, 255, 0.7)">
+										Head of Talent Acquisition, North America
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Testimonial 2 -->
+					<div
+						class="testimonial-card"
+						style="
+							background: rgba(255, 255, 255, 0.05);
+							border-radius: 16px;
+							padding: 32px;
+							box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+							position: relative;
+							backdrop-filter: blur(10px);
+							border: 1px solid rgba(255, 255, 255, 0.1);
+						"
+					>
+						<div
+							style="
+								position: absolute;
+								top: -20px;
+								left: 32px;
+								width: 64px;
+								height: 64px;
+								border-radius: 50%;
+								overflow: hidden;
+								border: 4px solid #043873;
+								box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+							"
+						>
+							<img
+								src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=128&h=128&q=80"
+								alt="Sarah Chen"
+								style="width: 100%; height: 100%; object-fit: cover"
+							/>
+						</div>
+						<div style="margin-top: 40px">
+							<div
+								style="
+									color: rgba(255, 255, 255, 0.9);
+									font-size: 15px;
+									line-height: 1.6;
+									margin-bottom: 24px;
+								"
+							>
+								"The seamless integration with other tools and the ability to
+								collaborate in real-time has transformed how our team works.
+								It's intuitive and powerful."
+							</div>
+							<div style="display: flex; align-items: center; gap: 12px">
+								<div>
+									<div
+										style="font-weight: 600; color: white; margin-bottom: 4px"
+									>
+										Sarah Chen
+									</div>
+									<div style="font-size: 14px; color: rgba(255, 255, 255, 0.7)">
+										Product Manager, Tech Solutions
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Testimonial 3 -->
+					<div
+						class="testimonial-card"
+						style="
+							background: rgba(255, 255, 255, 0.05);
+							border-radius: 16px;
+							padding: 32px;
+							box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+							position: relative;
+							backdrop-filter: blur(10px);
+							border: 1px solid rgba(255, 255, 255, 0.1);
+						"
+					>
+						<div
+							style="
+								position: absolute;
+								top: -20px;
+								left: 32px;
+								width: 64px;
+								height: 64px;
+								border-radius: 50%;
+								overflow: hidden;
+								border: 4px solid #043873;
+								box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+							"
+						>
+							<img
+								src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=128&h=128&q=80"
+								alt="Michael Rodriguez"
+								style="width: 100%; height: 100%; object-fit: cover"
+							/>
+						</div>
+						<div style="margin-top: 40px">
+							<div
+								style="
+									color: rgba(255, 255, 255, 0.9);
+									font-size: 15px;
+									line-height: 1.6;
+									margin-bottom: 24px;
+								"
+							>
+								"The security features and data control options give us peace of
+								mind. It's rare to find a tool that balances ease of use with
+								robust security."
+							</div>
+							<div style="display: flex; align-items: center; gap: 12px">
+								<div>
+									<div
+										style="font-weight: 600; color: white; margin-bottom: 4px"
+									>
+										Michael Rodriguez
+									</div>
+									<div style="font-size: 14px; color: rgba(255, 255, 255, 0.7)">
+										CTO, Digital Innovations
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div style="text-align: center; margin-top: 40px">
+					<div
+						style="
+							display: flex;
+							justify-content: center;
+							gap: 8px;
+							margin-bottom: 24px;
+						"
+					>
+						<div
+							style="
+								width: 40px;
+								height: 4px;
+								background: #4f9cf9;
+								border-radius: 2px;
+							"
+						></div>
+						<div
+							style="
+								width: 40px;
+								height: 4px;
+								background: rgba(255, 255, 255, 0.2);
+								border-radius: 2px;
+							"
+						></div>
+						<div
+							style="
+								width: 40px;
+								height: 4px;
+								background: rgba(255, 255, 255, 0.2);
+								border-radius: 2px;
+							"
+						></div>
+					</div>
+					<a
+						href="#pricing"
+						class="btn btn-primary"
+						style="display: inline-block; background-color: #4f9cf9"
+						>Join our satisfied customers</a
+					>
+				</div>
+			</div>
+		</section>
+
+		<!-- Pricing Section -->
+		<section class="pricing" id="pricing">
+			<div class="container">
+				<div class="pricing-header">
+					<h2>Choose Your Plan</h2>
+					<p>
+						Whether you want to get organized, keep your personal life on track,
+						or boost workplace productivity, Evernote has the right plan for
+						you.
+					</p>
+				</div>
+
+				<div class="pricing-grid">
+					<div class="pricing-card">
+						<h3>Personal</h3>
+						<div class="price">$11.99<span>/month</span></div>
+						<p>Keep home and family on track</p>
+						<ul class="pricing-features">
+							<li>Sync unlimited devices</li>
+							<li>10GB monthly uploads</li>
+							<li>200MB max. note size</li>
+							<li>Customize Home dashboard and access extra widgets</li>
+							<li>Connect primary Google Calendar account</li>
+							<li>Add due dates, reminders, and notifications to your tasks</li>
+						</ul>
+						<a href="#" class="btn btn-primary">Get Started</a>
+					</div>
+
+					<div class="pricing-card popular">
+						<div class="popular-tag">Most Popular</div>
+						<h3>Organization</h3>
+						<div class="price">$49.99<span>/month</span></div>
+						<p>Capture ideas and find them quickly</p>
+						<ul class="pricing-features">
+							<li>Sync unlimited devices</li>
+							<li>10GB monthly uploads</li>
+							<li>200MB max. note size</li>
+							<li>Customize Home dashboard and access extra widgets</li>
+							<li>Connect primary Google Calendar account</li>
+							<li>Add due dates, reminders, and notifications to your tasks</li>
+						</ul>
+						<a href="#" class="btn btn-primary">Get Started</a>
+					</div>
+
+					<div class="pricing-card">
+						<h3>Free</h3>
+						<div class="price">$0<span>/month</span></div>
+						<p>Capture ideas and find them quickly</p>
+						<ul class="pricing-features">
+							<li>Sync unlimited devices</li>
+							<li>10GB monthly uploads</li>
+							<li>200MB max. note size</li>
+						</ul>
+						<a href="#" class="btn btn-outline">Get Started</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- CTA Section -->
+		<section class="cta" id="cta">
+			<div class="container">
+				<h2>Try Whitepace today</h2>
+				<p>Get started for free. Add your whole team as your needs grow.</p>
+				<div class="cta-buttons">
+					<a href="#" class="btn btn-primary">Try It Today</a>
+					<a href="#" class="btn btn-outline">On a big team? Contact sales</a>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="container">
+				<div class="footer-grid">
+					<div class="footer-about">
+						<div class="footer-logo">white<span>pace</span></div>
+						<p>
+							whitepace was created for the new ways we live and work. We make a
+							better workspace around the world.
+						</p>
+					</div>
+
+					<div class="footer-links">
+						<h3>Product</h3>
+						<ul>
+							<li><a href="#">Overview</a></li>
+							<li><a href="#">Pricing</a></li>
+							<li><a href="#">Customer stories</a></li>
+						</ul>
+					</div>
+
+					<div class="footer-links">
+						<h3>Resources</h3>
+						<ul>
+							<li><a href="#">Blog</a></li>
+							<li><a href="#">Guides & tutorials</a></li>
+							<li><a href="#">Help center</a></li>
+						</ul>
+					</div>
+
+					<div class="footer-links">
+						<h3>Company</h3>
+						<ul>
+							<li><a href="#">About us</a></li>
+							<li><a href="#">Careers</a></li>
+							<li><a href="#">Media kit</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="footer-bottom">
+					<div class="footer-copyright">
+						<p>©2021 Whitepace LLC. All rights reserved.</p>
+					</div>
+					<div class="footer-links">
+						<a href="#">Terms & privacy</a>
+						<a href="#">Security</a>
+						<a href="#">Status</a>
+					</div>
+					<div class="footer-social">
+						<a
+							href="#"
+							aria-label="Facebook"
+							style="
+								background: #fff;
+								display: inline-flex;
+								align-items: center;
+								justify-content: center;
+								width: 36px;
+								height: 36px;
+								border-radius: 50%;
+								margin-right: 8px;
+							"
+						>
+							<!-- Facebook SVG -->
+							<svg
+								fill="#043873"
+								width="20"
+								height="20"
+								viewBox="0 0 32 32"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									d="M21.95 5.005l-3.306-.004c-3.206 0-5.277 2.124-5.277 5.415v2.495H10.05v4.515h3.317l-.004 9.575h4.641l.004-9.575h3.806l-.003-4.514h-3.803v-2.117c0-1.018.241-1.533 1.566-1.533l2.366-.001.01-4.256z"
+								/>
+							</svg>
+						</a>
+						<a
+							href="#"
+							aria-label="Google"
+							style="
+								background: #fff;
+								display: inline-flex;
+								align-items: center;
+								justify-content: center;
+								width: 36px;
+								height: 36px;
+								border-radius: 50%;
+								margin-right: 8px;
+							"
+						>
+							<!-- Google SVG -->
+							<svg
+								width="20"
+								height="20"
+								viewBox="-3 0 262 262"
+								xmlns="http://www.w3.org/2000/svg"
+								preserveAspectRatio="xMidYMid"
+							>
+								<path
+									d="M255.878 133.451c0-10.734-.871-18.567-2.756-26.69H130.55v48.448h71.947c-1.45 12.04-9.283 30.172-26.69 42.356l-.244 1.622 38.755 30.023 2.685.268c24.659-22.774 38.875-56.282 38.875-96.027"
+									fill="#4285F4"
+								/>
+								<path
+									d="M130.55 261.1c35.248 0 64.839-11.605 86.453-31.622l-41.196-31.913c-11.024 7.688-25.82 13.055-45.257 13.055-34.523 0-63.824-22.773-74.269-54.25l-1.531.13-40.298 31.187-.527 1.465C35.393 231.798 79.49 261.1 130.55 261.1"
+									fill="#34A853"
+								/>
+								<path
+									d="M56.281 156.37c-22.459,0-40.666-18.207-40.666-40.666S64.289,42.1,86.748,42.1 s40.666,18.207,40.666,40.666S109.208,123.432,86.748,123.432z M341.91,330.654c0,5.106-4.14,9.246-9.246,9.246H286.73 c-5.106,0-9.246-4.14-9.246-9.246v-84.168c0-12.556,3.683-55.021-32.813-55.021c-28.309,0-34.051,29.066-35.204,42.11v97.079 c0,5.106-4.139,9.246-9.246,9.246h-44.426c-5.106,0-9.246-4.14-9.246-9.246V149.593c0-5.106,4.14-9.246,9.246-9.246h44.426 c5.106,0,9.246,4.14,9.246,9.246v15.655c10.497-15.753,26.097-27.912,59.312-27.912c73.552,0,73.131,68.716,73.131,106.472 L341.91,330.654L341.91,330.654z"
+								/>
+							</svg>
+						</a>
+						<a
+							href="#"
+							aria-label="LinkedIn"
+							style="
+								background: #fff;
+								display: inline-flex;
+								align-items: center;
+								justify-content: center;
+								width: 36px;
+								height: 36px;
+								border-radius: 50%;
+								margin-right: 8px;
+							"
+						>
+							<!-- LinkedIn SVG -->
+							<svg
+								height="20"
+								width="20"
+								viewBox="0 0 382 382"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									style="fill: #0077b7"
+									d="M347.445,0H34.555C15.471,0,0,15.471,0,34.555v312.889C0,366.529,15.471,382,34.555,382h312.889 C366.529,382,382,366.529,382,347.444V34.555C382,15.471,366.529,0,347.445,0z M118.207,329.844c0,5.554-4.502,10.056-10.056,10.056 H65.345c-5.554,0-10.056-4.502-10.056-10.056V150.403c0-5.554,4.502-10.056,10.056-10.056h42.806 c5.554,0,10.056,4.502,10.056,10.056V329.844z M86.748,123.432c-22.459,0-40.666-18.207-40.666-40.666S64.289,42.1,86.748,42.1 s40.666,18.207,40.666,40.666S109.208,123.432,86.748,123.432z M341.91,330.654c0,5.106-4.14,9.246-9.246,9.246H286.73 c-5.106,0-9.246-4.14-9.246-9.246v-84.168c0-12.556,3.683-55.021-32.813-55.021c-28.309,0-34.051,29.066-35.204,42.11v97.079 c0,5.106-4.139,9.246-9.246,9.246h-44.426c-5.106,0-9.246-4.14-9.246-9.246V149.593c0-5.106,4.14-9.246,9.246-9.246h44.426 c5.106,0,9.246,4.14,9.246,9.246v15.655c10.497-15.753,26.097-27.912,59.312-27.912c73.552,0,73.131,68.716,73.131,106.472 L341.91,330.654L341.91,330.654z"
+								/>
+							</svg>
+						</a>
+						<a
+							href="#"
+							aria-label="Instagram"
+							style="
+								background: #fff;
+								display: inline-flex;
+								align-items: center;
+								justify-content: center;
+								width: 36px;
+								height: 36px;
+								border-radius: 50%;
+							"
+						>
+							<!-- Instagram SVG -->
+							<svg
+								width="20"
+								height="20"
+								viewBox="0 0 24 24"
+								fill="none"
+								xmlns="http://www.w3.org/2000/svg"
+							>
+								<path
+									d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+									fill="#043873"
+								/>
+							</svg>
+						</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<!-- Back to Top Button -->
+		<a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">
+			<svg
+				width="28"
+				height="28"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			>
+				<polyline points="18 15 12 9 6 15"></polyline>
+			</svg>
+		</a>
+
+		<script>
+			// Hamburger menu logic
+			const hamburger = document.getElementById("hamburger");
+			const sidebar = document.getElementById("sidebar");
+			const closeSidebar = document.getElementById("closeSidebar");
+			const sidebarLinks = document.querySelectorAll(".sidebar-link");
+			const mainNavLinks = document.querySelectorAll(".main-nav a");
+
+			// Função genérica para scroll suave
+			function smoothScrollTo(targetId) {
+				const targetElement = document.querySelector(targetId);
+				if (targetElement) {
+					targetElement.scrollIntoView({ behavior: "smooth" });
+					// Fecha o sidebar se estiver aberto
+					sidebar.classList.remove("open");
+					document.body.style.overflow = "";
+				}
+			}
+
+			// Adiciona evento de click para todos os links do menu principal
+			mainNavLinks.forEach((link) => {
+				link.addEventListener("click", function (e) {
+					e.preventDefault();
+					const targetId = this.getAttribute("href");
+					smoothScrollTo(targetId);
+				});
+			});
+
+			// Adiciona evento de click para todos os links do sidebar
+			sidebarLinks.forEach((link) => {
+				link.addEventListener("click", function (e) {
+					e.preventDefault();
+					const targetId = this.getAttribute("href");
+					smoothScrollTo(targetId);
+				});
+			});
+
+			hamburger.addEventListener("click", () => {
+				sidebar.classList.add("open");
+				document.body.style.overflow = "hidden";
+			});
+
+			closeSidebar.addEventListener("click", () => {
+				sidebar.classList.remove("open");
+				document.body.style.overflow = "";
+			});
+
+			// Back to top button logic
+			const backToTop = document.getElementById("backToTop");
+			window.addEventListener("scroll", () => {
+				if (window.scrollY > 300) {
+					backToTop.classList.add("show");
+				} else {
+					backToTop.classList.remove("show");
+				}
+			});
+
+			backToTop.addEventListener("click", function (e) {
+				e.preventDefault();
+				window.scrollTo({ top: 0, behavior: "smooth" });
+			});
+
+			// Carousel logic
+			(function () {
+				const carousel = document.getElementById("sponsorCarousel");
+				// Duplicar os logos para efeito de loop infinito
+				carousel.innerHTML += carousel.innerHTML;
+				const logoCount = 8; // Atualizado para 8 logos
+				let scrollAmount = 0;
+				let logoWidth = carousel.querySelector(
+					".sponsor-logo-circle"
+				).offsetWidth;
+				let gap = parseInt(getComputedStyle(carousel).gap) || 32;
+				let totalWidth = (logoWidth + gap) * logoCount;
+				function animate() {
+					scrollAmount += 0.7;
+					if (scrollAmount >= totalWidth) {
+						scrollAmount = 0;
+					}
+					carousel.style.transform = `translateX(${-scrollAmount}px)`;
+					requestAnimationFrame(animate);
+				}
+				animate();
+				// Responsivo: recalcula valores ao redimensionar
+				window.addEventListener("resize", () => {
+					logoWidth = carousel.querySelector(
+						".sponsor-logo-circle"
+					).offsetWidth;
+					gap = parseInt(getComputedStyle(carousel).gap) || 32;
+					totalWidth = (logoWidth + gap) * logoCount;
+				});
+			})();
+		</script>
+	</body>
+</html>

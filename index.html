@@ -306,19 +306,21 @@
 			}
 
 			.testimonial-card {
-				background-color: white;
-				border-radius: 10px;
-				padding: 30px;
-				box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-				max-width: 800px;
-				margin: 0 auto;
-				text-align: center;
+				background: rgba(255, 255, 255, 0.05);
+				border-radius: 16px;
+				padding: 32px;
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+				position: relative;
+				backdrop-filter: blur(10px);
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				height: 100%;
+				display: flex;
+				flex-direction: column;
 			}
 
-			.testimonial-text {
-				font-size: 18px;
-				font-style: italic;
-				margin-bottom: 20px;
+			.testimonial-card .testimonial-text {
+				flex: 1;
+				margin-bottom: 24px;
 			}
 
 			.testimonial-author {
@@ -450,51 +452,306 @@
 			}
 
 			/* Responsive Styles */
+			@media (max-width: 1200px) {
+				.container {
+					max-width: 1140px;
+					padding: 0 20px;
+				}
+			}
+
 			@media (max-width: 992px) {
-				.features-grid,
-				.pricing-grid,
-				.footer-grid {
-					grid-template-columns: repeat(2, 1fr);
+				.container {
+					max-width: 960px;
 				}
 
 				.hero-container {
 					flex-direction: column;
+					gap: 40px;
+				}
+
+				.hero-content {
+					text-align: center;
+				}
+
+				.hero p {
+					margin: 0 auto;
+				}
+
+				.features-grid,
+				.pricing-grid {
+					grid-template-columns: repeat(2, 1fr);
+				}
+
+				.about-grid {
+					grid-template-columns: 1fr;
+				}
+
+				.about-image {
+					order: -1;
+				}
+
+				.testimonials-grid {
+					grid-template-columns: repeat(2, 1fr);
+				}
+
+				.footer-grid {
+					grid-template-columns: repeat(2, 1fr);
 				}
 			}
 
 			@media (max-width: 768px) {
-				nav {
+				.container {
+					max-width: 720px;
+				}
+
+				/* Header */
+				.main-nav,
+				.header-actions {
 					display: none;
+				}
+
+				.hamburger {
+					display: flex;
+				}
+
+				/* Hero */
+				.hero {
+					padding: 60px 0;
 				}
 
 				.hero h1 {
 					font-size: 36px;
 				}
 
-				.features-grid,
-				.pricing-grid {
-					grid-template-columns: 1fr;
+				.hero p {
+					font-size: 16px;
 				}
 
-				.footer-grid {
-					grid-template-columns: 1fr 1fr;
+				/* Features */
+				.features {
+					padding: 60px 0;
+				}
+
+				.features-header h2,
+				.pricing-header h2,
+				.testimonials-header h2 {
+					font-size: 28px;
+				}
+
+				.features-grid,
+				.pricing-grid,
+				.testimonials-grid {
+					grid-template-columns: 1fr;
+					gap: 20px;
+				}
+
+				/* About */
+				.about-grid {
+					gap: 30px;
+				}
+
+				.about-image img {
+					max-height: 300px;
+					object-fit: cover;
+				}
+
+				/* Pricing */
+				.pricing {
+					padding: 60px 0;
+				}
+
+				.pricing-card {
+					padding: 30px 20px;
+				}
+
+				/* Testimonials */
+				.testimonials {
+					padding: 60px 0;
+				}
+
+				.testimonial-card {
+					padding: 25px 20px;
+				}
+
+				/* CTA */
+				.cta {
+					padding: 60px 0;
 				}
 
 				.cta-buttons {
 					flex-direction: column;
-					align-items: center;
+					gap: 15px;
 				}
-			}
 
-			@media (max-width: 576px) {
+				.cta-buttons .btn {
+					width: 100%;
+					text-align: center;
+				}
+
+				/* Footer */
 				.footer-grid {
 					grid-template-columns: 1fr;
+					text-align: center;
+					gap: 30px;
 				}
 
 				.footer-bottom {
 					flex-direction: column;
 					gap: 20px;
-					text-align: center;
+				}
+
+				.footer-social {
+					justify-content: center;
+				}
+
+				/* Back to Top */
+				.back-to-top {
+					bottom: 20px;
+					right: 20px;
+					width: 40px;
+					height: 40px;
+				}
+			}
+
+			@media (max-width: 576px) {
+				.container {
+					padding: 0 15px;
+				}
+
+				/* Hero */
+				.hero h1 {
+					font-size: 32px;
+				}
+
+				/* Features */
+				.feature-card,
+				.pricing-card,
+				.testimonial-card {
+					padding: 20px;
+				}
+
+				/* About */
+				.about-image img {
+					max-height: 250px;
+				}
+
+				/* Sponsors */
+				.sponsor-carousel-outer {
+					padding: 0 10px;
+				}
+
+				.sponsor-logo-circle {
+					width: 40px;
+					height: 40px;
+				}
+
+				.sponsor-logo-circle svg {
+					width: 24px;
+					height: 24px;
+				}
+			}
+
+			/* Ajustes adicionais para melhor responsividade */
+			.hero-image img {
+				max-width: 100%;
+				height: auto;
+				border-radius: 10px;
+			}
+
+			.feature-card,
+			.pricing-card,
+			.testimonial-card {
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+			}
+
+			.feature-card .btn,
+			.pricing-card .btn {
+				margin-top: auto;
+			}
+
+			.about-content {
+				display: flex;
+				flex-direction: column;
+			}
+
+			.about-content .btn {
+				align-self: flex-start;
+			}
+
+			@media (max-width: 768px) {
+				.about-content .btn {
+					align-self: center;
+				}
+			}
+
+			/* Ajustes para o carrossel responsivo */
+			.sponsor-carousel-outer {
+				position: relative;
+				width: 100%;
+				overflow: hidden;
+				padding: 0 20px;
+			}
+
+			.sponsor-carousel {
+				display: flex;
+				gap: 32px;
+				align-items: center;
+			}
+
+			.sponsor-logo-circle {
+				flex-shrink: 0;
+				width: 64px;
+				height: 64px;
+				background: #fff;
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+
+				justify-content: center;
+				box-shadow: 0 2px 8px rgba(4, 56, 115, 0.1);
+				transition: transform 0.2s;
+			}
+
+			.sponsor-logo-circle:hover {
+				transform: scale(1.1);
+			}
+
+			.sponsor-logo-circle svg {
+				width: 40px;
+				height: 40px;
+			}
+
+			@media (max-width: 768px) {
+				.sponsor-carousel {
+					gap: 24px;
+				}
+
+				.sponsor-logo-circle {
+					width: 48px;
+					height: 48px;
+				}
+
+				.sponsor-logo-circle svg {
+					width: 28px;
+					height: 28px;
+				}
+			}
+
+			@media (max-width: 576px) {
+				.sponsor-carousel {
+					gap: 16px;
+				}
+
+				.sponsor-logo-circle {
+					width: 40px;
+					height: 40px;
+				}
+
+				.sponsor-logo-circle svg {
+					width: 24px;
+					height: 24px;
 				}
 			}
 
@@ -662,6 +919,169 @@
 			@media (max-width: 700px) {
 				.sponsor-carousel-outer {
 					padding: 0 4px;
+				}
+			}
+
+			/* Testimonials Section Styles */
+			.testimonials-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 30px;
+				margin-bottom: 40px;
+			}
+
+			.testimonial-card {
+				background: rgba(255, 255, 255, 0.05);
+				border-radius: 16px;
+				padding: 32px;
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+				position: relative;
+				backdrop-filter: blur(10px);
+				border: 1px solid rgba(255, 255, 255, 0.1);
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+			}
+
+			.testimonial-card .testimonial-text {
+				flex: 1;
+				margin-bottom: 24px;
+			}
+
+			/* Apps Integration Section Styles */
+			.apps-integration-grid {
+				display: grid;
+				grid-template-columns: repeat(3, 1fr);
+				gap: 30px;
+				margin-bottom: 60px;
+			}
+
+			.app-integration-card {
+				background: white;
+				border-radius: 16px;
+				padding: 32px;
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+				transition: transform 0.3s ease;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+			}
+
+			.app-integration-card:hover {
+				transform: translateY(-5px);
+			}
+
+			.app-icon-container {
+				width: 64px;
+				height: 64px;
+				background: #f0f7ff;
+				border-radius: 12px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin-bottom: 24px;
+			}
+
+			.app-integration-card h3 {
+				font-size: 20px;
+				color: #043873;
+				margin-bottom: 16px;
+			}
+
+			.app-integration-card p {
+				color: #666;
+				font-size: 15px;
+				line-height: 1.6;
+				margin-bottom: 20px;
+				flex: 1;
+			}
+
+			.app-integration-card .learn-more {
+				color: #4f9cf9;
+				font-weight: 500;
+				display: inline-flex;
+				align-items: center;
+				gap: 8px;
+				margin-top: auto;
+			}
+
+			/* Responsive Styles */
+			@media (max-width: 1200px) {
+				.testimonials-grid,
+				.apps-integration-grid {
+					gap: 25px;
+				}
+			}
+
+			@media (max-width: 992px) {
+				.testimonials-grid,
+				.apps-integration-grid {
+					grid-template-columns: repeat(2, 1fr);
+					gap: 20px;
+				}
+
+				.testimonial-card,
+				.app-integration-card {
+					padding: 25px;
+				}
+			}
+
+			@media (max-width: 768px) {
+				.testimonials-grid,
+				.apps-integration-grid {
+					grid-template-columns: 1fr;
+					max-width: 500px;
+					margin-left: auto;
+					margin-right: auto;
+				}
+
+				.testimonial-card {
+					padding: 25px 20px;
+				}
+
+				.app-integration-card {
+					padding: 25px 20px;
+				}
+
+				.app-icon-container {
+					width: 56px;
+					height: 56px;
+				}
+
+				.app-integration-card h3 {
+					font-size: 18px;
+				}
+
+				.app-integration-card p {
+					font-size: 14px;
+				}
+			}
+
+			@media (max-width: 576px) {
+				.testimonials-grid,
+				.apps-integration-grid {
+					gap: 15px;
+				}
+
+				.testimonial-card,
+				.app-integration-card {
+					padding: 20px;
+				}
+
+				.app-icon-container {
+					width: 48px;
+					height: 48px;
+					margin-bottom: 16px;
+				}
+
+				.app-integration-card h3 {
+					font-size: 16px;
+					margin-bottom: 12px;
+				}
+
+				.app-integration-card p {
+					font-size: 14px;
+					margin-bottom: 16px;
 				}
 			}
 		</style>
@@ -1275,36 +1695,10 @@
 					</p>
 				</div>
 
-				<div
-					style="
-						display: grid;
-						grid-template-columns: repeat(3, 1fr);
-						gap: 30px;
-						margin-bottom: 60px;
-					"
-				>
+				<div class="apps-integration-grid">
 					<!-- App Integration Card 1 -->
-					<div
-						style="
-							background: white;
-							border-radius: 16px;
-							padding: 32px;
-							box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-							transition: transform 0.3s ease;
-						"
-					>
-						<div
-							style="
-								width: 64px;
-								height: 64px;
-								background: #f0f7ff;
-								border-radius: 12px;
-								display: flex;
-								align-items: center;
-								justify-content: center;
-								margin-bottom: 24px;
-							"
-						>
+					<div class="app-integration-card">
+						<div class="app-icon-container">
 							<object
 								data="assets/icons/google-calendar.svg"
 								type="image/svg+xml"
@@ -1317,30 +1711,12 @@
 								/>
 							</object>
 						</div>
-						<h3 style="font-size: 20px; color: #043873; margin-bottom: 16px">
-							Integração com Slack
-						</h3>
-						<p
-							style="
-								color: #666;
-								font-size: 15px;
-								line-height: 1.6;
-								margin-bottom: 20px;
-							"
-						>
+						<h3>Integração com Slack</h3>
+						<p>
 							Conecte seu workspace do Slack ao Whitepace e receba notificações
 							instantâneas sobre seus projetos e tarefas.
 						</p>
-						<a
-							href="#"
-							style="
-								color: #4f9cf9;
-								font-weight: 500;
-								display: inline-flex;
-								align-items: center;
-								gap: 8px;
-							"
-						>
+						<a href="#" class="learn-more">
 							Saiba mais
 							<svg
 								width="20"
@@ -1356,27 +1732,8 @@
 					</div>
 
 					<!-- App Integration Card 2 -->
-					<div
-						style="
-							background: white;
-							border-radius: 16px;
-							padding: 32px;
-							box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-							transition: transform 0.3s ease;
-						"
-					>
-						<div
-							style="
-								width: 64px;
-								height: 64px;
-								background: #f0f7ff;
-								border-radius: 12px;
-								display: flex;
-								align-items: center;
-								justify-content: center;
-								margin-bottom: 24px;
-							"
-						>
+					<div class="app-integration-card">
+						<div class="app-icon-container">
 							<object
 								data="assets/icons/google-calendar.svg"
 								type="image/svg+xml"
@@ -1389,30 +1746,12 @@
 								/>
 							</object>
 						</div>
-						<h3 style="font-size: 20px; color: #043873; margin-bottom: 16px">
-							Google Calendar
-						</h3>
-						<p
-							style="
-								color: #666;
-								font-size: 15px;
-								line-height: 1.6;
-								margin-bottom: 20px;
-							"
-						>
+						<h3>Google Calendar</h3>
+						<p>
 							Sincronize seu Google Calendar com o Whitepace para gerenciar sua
 							agenda e prazos em um só lugar.
 						</p>
-						<a
-							href="#"
-							style="
-								color: #4f9cf9;
-								font-weight: 500;
-								display: inline-flex;
-								align-items: center;
-								gap: 8px;
-							"
-						>
+						<a href="#" class="learn-more">
 							Saiba mais
 							<svg
 								width="20"
@@ -1428,57 +1767,20 @@
 					</div>
 
 					<!-- App Integration Card 3 -->
-					<div
-						style="
-							background: white;
-							border-radius: 16px;
-							padding: 32px;
-							box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-							transition: transform 0.3s ease;
-						"
-					>
-						<div
-							style="
-								width: 64px;
-								height: 64px;
-								background: #f0f7ff;
-								border-radius: 12px;
-								display: flex;
-								align-items: center;
-								justify-content: center;
-								margin-bottom: 24px;
-							"
-						>
+					<div class="app-integration-card">
+						<div class="app-icon-container">
 							<img
 								src="https://cdn.worldvectorlogo.com/logos/dropbox-1.svg"
 								alt="Dropbox"
 								style="width: 40px; height: 40px"
 							/>
 						</div>
-						<h3 style="font-size: 20px; color: #043873; margin-bottom: 16px">
-							Sincronização com Dropbox
-						</h3>
-						<p
-							style="
-								color: #666;
-								font-size: 15px;
-								line-height: 1.6;
-								margin-bottom: 20px;
-							"
-						>
+						<h3>Sincronização com Dropbox</h3>
+						<p>
 							Sincronize automaticamente seus arquivos do Dropbox com o
 							Whitepace para um gerenciamento e colaboração perfeitos.
 						</p>
-						<a
-							href="#"
-							style="
-								color: #4f9cf9;
-								font-weight: 500;
-								display: inline-flex;
-								align-items: center;
-								gap: 8px;
-							"
-						>
+						<a href="#" class="learn-more">
 							Saiba mais
 							<svg
 								width="20"
@@ -1610,28 +1912,9 @@
 					</p>
 				</div>
 
-				<div
-					class="testimonials-grid"
-					style="
-						display: grid;
-						grid-template-columns: repeat(3, 1fr);
-						gap: 30px;
-						margin-bottom: 40px;
-					"
-				>
+				<div class="testimonials-grid">
 					<!-- Testimonial 1 -->
-					<div
-						class="testimonial-card"
-						style="
-							background: rgba(255, 255, 255, 0.05);
-							border-radius: 16px;
-							padding: 32px;
-							box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-							position: relative;
-							backdrop-filter: blur(10px);
-							border: 1px solid rgba(255, 255, 255, 0.1);
-						"
-					>
+					<div class="testimonial-card">
 						<div
 							style="
 								position: absolute;
@@ -1681,18 +1964,7 @@
 					</div>
 
 					<!-- Testimonial 2 -->
-					<div
-						class="testimonial-card"
-						style="
-							background: rgba(255, 255, 255, 0.05);
-							border-radius: 16px;
-							padding: 32px;
-							box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-							position: relative;
-							backdrop-filter: blur(10px);
-							border: 1px solid rgba(255, 255, 255, 0.1);
-						"
-					>
+					<div class="testimonial-card">
 						<div
 							style="
 								position: absolute;
@@ -1741,18 +2013,7 @@
 					</div>
 
 					<!-- Testimonial 3 -->
-					<div
-						class="testimonial-card"
-						style="
-							background: rgba(255, 255, 255, 0.05);
-							border-radius: 16px;
-							padding: 32px;
-							box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-							position: relative;
-							backdrop-filter: blur(10px);
-							border: 1px solid rgba(255, 255, 255, 0.1);
-						"
-					>
+					<div class="testimonial-card">
 						<div
 							style="
 								position: absolute;
@@ -2179,31 +2440,72 @@
 			// Carousel logic
 			(function () {
 				const carousel = document.getElementById("sponsorCarousel");
-				// Duplicar os logos para efeito de loop infinito
-				carousel.innerHTML += carousel.innerHTML;
-				const logoCount = 8; // Atualizado para 8 logos
+				const logos = carousel.querySelectorAll(".sponsor-logo-circle");
+				const logoCount = logos.length;
+
+				// Clone logos for infinite effect
+				logos.forEach((logo) => {
+					const clone = logo.cloneNode(true);
+					carousel.appendChild(clone);
+				});
+
 				let scrollAmount = 0;
-				let logoWidth = carousel.querySelector(
-					".sponsor-logo-circle"
-				).offsetWidth;
-				let gap = parseInt(getComputedStyle(carousel).gap) || 32;
-				let totalWidth = (logoWidth + gap) * logoCount;
+				const speed = 0.5;
+				let animationFrame;
+
 				function animate() {
-					scrollAmount += 0.7;
-					if (scrollAmount >= totalWidth) {
+					scrollAmount += speed;
+
+					// Reset position when reaching the end
+					if (scrollAmount >= logoCount * (logos[0].offsetWidth + 32)) {
 						scrollAmount = 0;
 					}
-					carousel.style.transform = `translateX(${-scrollAmount}px)`;
-					requestAnimationFrame(animate);
+
+					carousel.style.transform = `translateX(-${scrollAmount}px)`;
+					animationFrame = requestAnimationFrame(animate);
 				}
+
+				// Start animation
 				animate();
-				// Responsivo: recalcula valores ao redimensionar.
+
+				// Handle resize
+				let resizeTimeout;
 				window.addEventListener("resize", () => {
-					logoWidth = carousel.querySelector(
-						".sponsor-logo-circle"
-					).offsetWidth;
-					gap = parseInt(getComputedStyle(carousel).gap) || 32;
-					totalWidth = (logoWidth + gap) * logoCount;
+					clearTimeout(resizeTimeout);
+					resizeTimeout = setTimeout(() => {
+						// Reset animation on resize
+						scrollAmount = 0;
+						carousel.style.transform = "translateX(0)";
+					}, 250);
+				});
+
+				// Pause animation on hover/touch
+				carousel.addEventListener("mouseenter", () => {
+					cancelAnimationFrame(animationFrame);
+				});
+
+				carousel.addEventListener("mouseleave", () => {
+					animate();
+				});
+
+				// Touch events for mobile
+				let touchStartX = 0;
+				let touchEndX = 0;
+
+				carousel.addEventListener("touchstart", (e) => {
+					touchStartX = e.touches[0].clientX;
+					cancelAnimationFrame(animationFrame);
+				});
+
+				carousel.addEventListener("touchmove", (e) => {
+					touchEndX = e.touches[0].clientX;
+					const diff = touchStartX - touchEndX;
+					scrollAmount += diff * 0.1;
+					carousel.style.transform = `translateX(-${scrollAmount}px)`;
+				});
+
+				carousel.addEventListener("touchend", () => {
+					animate();
 				});
 			})();
 		</script>
